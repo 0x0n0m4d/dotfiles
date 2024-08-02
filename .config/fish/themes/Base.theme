@@ -1,0 +1,30 @@
+fish_color_normal normal
+fish_color_command blue
+fish_color_quote yellow
+fish_color_redirection green
+fish_color_end brgreen
+fish_color_error red
+fish_color_param brcyan
+fish_color_comment black
+fish_color_match --background=brblue
+fish_color_selection white --bold --background=brblack
+fish_color_search_match bryellow --background=black
+fish_color_history_current --bold
+fish_color_operator red
+fish_color_escape brblue
+fish_color_cwd green
+fish_color_cwd_root red
+fish_color_valid_path --underline
+fish_color_autosuggestion brblack
+fish_color_host normal
+fish_color_user brgreen
+fish_color_cancel red
+fish_pager_color_completion brblack
+fish_pager_color_description brblack
+fish_pager_color_prefix cyan --underline
+fish_pager_color_progress brwhite --background=cyan
+fish_pager_color_selected_background --background=brblack
+fish_color_option bryellow
+fish_color_keyword bryellow
+fish_color_host_remote yellow
+fish_color_status red
