@@ -47,5 +47,8 @@ vim.opt.formatoptions:append({ "r" })
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 
+-- Add symbols
+vim.cmd([[set list listchars=tab:>\ ,trail:+,eol:$]])
+
 -- Theme
 vim.opt.background = "dark"
