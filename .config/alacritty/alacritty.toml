@@ -1,18 +1,19 @@
-import = [ "~/.config/alacritty/themes/GruvMix.toml" ]
+import = [ "~/.config/alacritty/themes/Nordic.toml" ]
 
 [window]
-padding = { x = 5, y = 5 }
+padding = { x = 0, y = 0 }
+dimensions = { columns = 83, lines = 22 }
 dynamic_padding = true
 decorations = "None"
 opacity = 1.0
 blur = true
-title = "O_o"
+title = "( ._.)"
 
 [font]
-normal = { family = "0xProto Nerd Font", style = "Regular" }
-bold = { family = "0xProto Nerd Font", style = "Bold" }
-italic = { family = "0xProto Nerd Font", style = "Italic" }
-size = 14
+normal = { family = "Hurmit Nerd Font", style = "Regular" }
+bold = { family = "Hurmit Nerd Font", style = "Bold" }
+italic = { family = "Hurmit Nerd Font", style = "Italic" }
+size = 11
 
 [mouse]
 hide_when_typing = true

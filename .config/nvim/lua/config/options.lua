@@ -36,6 +36,7 @@ vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = ""
 vim.opt.conceallevel = 3
+vim.opt.clipboard = "unnamedplus"
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
@@ -48,7 +49,7 @@ vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 
 -- Add symbols
-vim.cmd([[set list listchars=tab:>\ ,trail:+,eol:$]])
+vim.cmd([[set list listchars=tab:>\ ,trail:+,eol:$,nbsp:%]])
 
 -- Theme
 vim.opt.background = "dark"

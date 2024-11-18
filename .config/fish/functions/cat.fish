@@ -1,4 +1,3 @@
-function cat --wraps='bat -p' --description 'alias cat=bat -p'
-    bat -p $argv
-
+function cat --wraps='batcat --theme "Nord"' --description 'alias cat=batcat --theme "Nord"'
+    batcat --theme Nord $argv
 end

@@ -1,0 +1,15 @@
+themes {
+    nordic {
+        fg "#60728A"
+        bg "#191D24"
+        black "#191D24"
+        red "#EBCB8B"
+        green "#CB775D"
+        yellow "#5E81AC"
+        blue "#5E81AC"
+        magenta "#C5727A"
+        cyan "#88C0D0"
+        white "#4C566A"
+        orange "#EBCB8B"
+    }
+}
