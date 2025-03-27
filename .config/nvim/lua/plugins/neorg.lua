@@ -20,6 +20,7 @@ return {
 					["core.mode"] = {},
 					["core.ui"] = {},
 					["core.integrations.treesitter"] = {},
+					["core.journal"] = {},
 					["core.concealer"] = {
 						config = {
 							icons = {
@@ -81,9 +82,8 @@ return {
 						config = {
 							workspaces = {
 								dashboard = "~/neorg/",
+								todo = "~/neorg/todo",
 								job = "~/neorg/job",
-								recon = "~/neorg/recon",
-								notes = "~/neorg/notes",
 								projects = "~/neorg/projects",
 							},
 						},

@@ -8,8 +8,7 @@
 
   - alacritty config
   - vim (Neovim) config
-  - zellij config
-  - fish config
+  - tmux config
 
 ## Neovim setup
 
@@ -24,8 +23,7 @@
 
 ## Shell setup (Linux)
 
-  - [Fish shell](https://fishshell.com/)
-  - [Fisher](https://github.com/jorgebucaran/fisher)
-  - [Tide](https://github.com/IlanCosman/tide) - Shell theme
+  - [zsh](https://www.zsh.org/)
+  - [powerlevel10k](https://github.com/romkatv/powerlevel10k/) - Shell theme
   - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
   - [Eza](https://github.com/eza-community/eza) - `ls` replacement

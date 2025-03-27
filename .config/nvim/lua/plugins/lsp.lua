@@ -4,7 +4,11 @@ return {
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, {
+				"selene",
+				"stylua",
 				"luacheck",
+				"shellcheck",
+				"shfmt",
 				"typescript-language-server",
 				"tailwindcss-language-server",
 				"nomicfoundation-solidity-language-server",
@@ -39,11 +43,12 @@ return {
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,
 				},
-				tsserver = {
+				ts_ls = {
 					root_dir = function(...)
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,
 					single_file_support = false,
+					format = "prettierd",
 					settings = {
 						typescript = {
 							inlayHints = {
@@ -142,16 +147,30 @@ return {
 					filetypes = { "solidity" },
 					cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
 				},
+				intelephense = {},
 				cmake = {
 					cmd = { "cmake-laguage-server" },
 				},
 				clangd = {
 					cmd = { "clangd" },
 				},
+				ruby_lsp = {},
 				rust_analyzer = {},
 				gopls = {},
 				pylsp = {},
 				cairo_ls = {},
+				volar = {},
+				-- sway_lsp = {
+				--   cmd = { "forc-lsp" },
+				--   filetypes = { "sway" },
+				--   init_options = {
+				--     -- Any initialization options
+				--     logging = { level = "trace" },
+				--   },
+				--   root_dir = function(fname)
+				--     return require("lspconfig.util").find_git_ancestor(fname)
+				--   end,
+				-- },
 			},
 			setup = {},
 		},

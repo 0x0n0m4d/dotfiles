@@ -17,7 +17,7 @@ return {
 		opts = {
 			options = {
 				-- globalstatus = false,
-				theme = "nordic",
+				theme = "gruvbox-material",
 			},
 		},
 	},
@@ -31,8 +31,8 @@ return {
 			require("incline").setup({
 				highlight = {
 					groups = {
-						InclineNormal = { guibg = "#CB775D", guifg = "#BBC3D4" },
-						InclineNormalNC = { guifg = "#60728A", guibg = "#242933" },
+						InclineNormal = { guibg = "#fe8019", guifg = "#141617" },
+						InclineNormalNC = { guifg = "#bdae93", guibg = "#282828" },
 					},
 				},
 				window = { margin = { vertical = 0, horizontal = 1 } },
@@ -65,6 +65,21 @@ return {
 		},
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
 	},
+	{
+		"akinsho/bufferline.nvim",
+		event = "VeryLazy",
+		keys = {
+			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+		},
+		opts = {
+			options = {
+				mode = "tabs",
+				show_buffer_close_icons = false,
+				show_close_icon = false,
+			},
+		},
+	},
 
 	-- File Explorer
 	{
@@ -75,24 +90,5 @@ return {
 				show_hidden = true,
 			},
 		},
-	},
-
-	-- Dashboard
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		opts = function(_, opts)
-			local logo = [[
-    ███╗   ██╗ ██████╗ ███╗   ███╗██╗  ██╗██████╗ 
-    ████╗  ██║██╔═████╗████╗ ████║██║  ██║██╔══██╗
-    ██╔██╗ ██║██║██╔██║██╔████╔██║███████║██║  ██║
-    ██║╚██╗██║████╔╝██║██║╚██╔╝██║╚════██║██║  ██║
-    ██║ ╚████║╚██████╔╝██║ ╚═╝ ██║     ██║██████╔╝
-  ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝     ╚═╝╚═════╝
-      ]]
-
-			logo = string.rep("\n", 8) .. logo .. "\n\n"
-			opts.config.header = vim.split(logo, "\n")
-		end,
 	},
 }
