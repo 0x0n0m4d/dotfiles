@@ -158,7 +158,6 @@ return {
 				rust_analyzer = {},
 				gopls = {},
 				pylsp = {},
-				cairo_ls = {},
 				volar = {},
 				-- sway_lsp = {
 				--   cmd = { "forc-lsp" },
