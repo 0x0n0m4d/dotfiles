@@ -6,9 +6,24 @@
 
 ## Contents
 
-  - alacritty config
-  - vim (Neovim) config
-  - tmux config
+  - i3 WM
+  - Shell
+  - Neovim
+
+## I3 Setup
+
+  - [Polybar](https://github.com/polybar/polybar) - Status Bar
+  - [Rofi](https://github.com/davatorium/rofi) - dmenu replacement
+  - [Picom](https://github.com/yshui/picom) - Compositor
+  - [Dvorak]() - Keyboard layout
+
+## Shell setup (Linux)
+
+  - [Alacritty](https://alacritty.org/) - Terminal
+  - [Fish](https://fishshell.com/) - Shell
+  - [tide](https://github.com/IlanCosman/tide) - Prompt
+  - [Nerd Fonts](https://www.nerdfonts.com/) JetBrainsMono Font
+  - [Eza](https://github.com/eza-community/eza) - `ls` replacement
 
 ## Neovim setup
 
@@ -20,10 +35,3 @@
   - for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) (_**optional**_)
     - live grep: [ripgrep](https://github.com/BurntSushi/ripgrep)
     - find files: [fd](https://github.com/sharkdp/fd)
-
-## Shell setup (Linux)
-
-  - [zsh](https://www.zsh.org/)
-  - [powerlevel10k](https://github.com/romkatv/powerlevel10k/) - Shell theme
-  - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
-  - [Eza](https://github.com/eza-community/eza) - `ls` replacement
