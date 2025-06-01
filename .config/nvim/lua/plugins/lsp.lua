@@ -2,6 +2,7 @@ return {
 	-- tools
 	{
 		"williamboman/mason.nvim",
+		tag = "v1.11.0",
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, {
 				"selene",
@@ -15,7 +16,11 @@ return {
 			})
 		end,
 	},
-
+	{
+		"williamboman/mason-lspconfig.nvim",
+		tag = "v1.32.0",
+		opts = {},
+	},
 	{
 		"glepnir/lspsaga.nvim",
 		opts = {},

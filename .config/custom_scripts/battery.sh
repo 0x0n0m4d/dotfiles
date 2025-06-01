@@ -11,18 +11,29 @@ percentage=$(acpi | awk -F, '{print $2}' | awk -F% '{print $1}' | sed 's/ //g')
 test $(acpi | awk -F, '{print $1}' | awk -F: '{print $2}' | sed 's/ //g') = "Charging"
 isCharging=$?
 
-if [ $isCharging -eq 0 ]; then
-    echo -n "%{F#83a598}%{F-}%{B#83a598}%{F#141617}   ${percentage}% %{B-}%{F-}%{F#83a598}%{F-}"
-else
-    if [ $percentage -lt 20 ]; then
-        echo -n "%{F#fb4934}%{F-}%{B#fb4934}%{F#141617}   ${percentage}% %{B-}%{F-}%{F#fb4934}%{F-}"
-    elif [ $percentage -lt 31 ]; then
-        echo -n "%{F#fabd2f}%{F-}%{B#fabd2f}%{F#141617}   ${percentage}% %{B-}%{F-}%{F#fabd2f}%{F-}"
-    elif [ $percentage -lt 51 ]; then
-        echo -n "%{F#fabd2f}%{F-}%{B#fabd2f}%{F#141617}   ${percentage}% %{B-}%{F-}%{F#fabd2f}%{F-}"
-    elif [ $percentage -lt 71 ]; then
-        echo -n "%{F#458588}%{F-}%{B#458588}%{F#141617}   ${percentage}% %{B-}%{F-}%{F#458588}%{F-}"
+sendNotification() {
+    notify-send -u critical "$percentage% battery remaining!!"
+}
+
+main() {
+    if [ $isCharging -eq 0 ]; then
+        echo -n "%{F#8ec07c} ${percentage}%%{F-}"
     else
-        echo -n "%{F#458588}%{F-}%{B#458588}%{F#141617}   ${percentage}% %{B-}%{F-}%{F#458588}%{F-}"
+        if [ $percentage -lt 21 ]; then
+            if [[ $percentage -eq 20 ]]; then
+                sendNotification
+            fi
+            echo -n "%{F#fb4934} ${percentage}%%{F-}"
+        elif [ $percentage -lt 36 ]; then
+            echo -n "%{F#b8bb26} ${percentage}%%{F-}"
+        elif [ $percentage -lt 51 ]; then
+            echo -n "%{F#b8bb26} ${percentage}%%{F-}"
+        elif [ $percentage -lt 71 ]; then
+            echo -n "%{F#b8bb26} ${percentage}%%{F-}"
+        else
+            echo -n "%{F#b8bb26} ${percentage}%%{F-}"
+        fi
     fi
-fi
+}
+
+main

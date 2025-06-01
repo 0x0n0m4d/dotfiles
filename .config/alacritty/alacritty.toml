@@ -5,17 +5,20 @@ dimensions = { columns = 98, lines = 24 }
 dynamic_padding = true
 decorations = "None"
 opacity = 1.0
-blur = true
 title = "O_o"
 
 [font]
 normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
 bold = { family = "JetBrainsMonoNerdFont", style = "Bold" }
 italic = { family = "JetBrainsMonoNerdFont", style = "Italic" }
-size = 10
+size = 9
 
 [mouse]
 hide_when_typing = true
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }
+blink_timeout = 0
 
 [general]
 import = [ "~/.config/alacritty/themes/Gruv.toml" ]

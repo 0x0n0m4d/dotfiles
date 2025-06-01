@@ -5,19 +5,19 @@
 */
 
 * {
-    dark:#0f0f0f;
-    red:#ea6962;
-    red-alt:#ca3433;
-    orange:#e78a4e;
-    yellow: #d8a657;
-    blue:#7daea3;
-    green:#a9a665;
-    aqua: #89b482;
-    cream:#d4be98;
-    grey:#504945;
-    dark-grey:#202020;
+    dark:#1d2021;
+    red:#fb4934;
+    red-alt:#cc241d;
+    orange:#fe8019;
+    yellow:#fabd2f;
+    blue:#458588;
+    green:#98971a;
+    aqua:#689d6a;
+    cream:#ebdbb2;
+    grey:#d5c4a1;
+    dark-grey:#bdae93;
     transparent:#00000000;
-    highlight:underline bold #ca3433;
+    highlight:underline bold #ebdbb2;
 
     padding:0;
     margin:0;
@@ -27,10 +27,10 @@
     vertical-align: 0.5;
 
     text-color: @cream;
-    border-color:@yellow;
+    border-color:@orange;
     background-color:@transparent;
 
-    font:"Roboto Condensed Bold 11";
+    font:"JetBrainsMonoNerdFont Bold 9";
 }
 
 configuration {
@@ -42,7 +42,7 @@ configuration {
 window {
     width: 25%;
     location: center;
-    background-color: @dark-grey;
+    background-color: @dark;
     orientaion: horizontal;
 }
 
@@ -52,25 +52,25 @@ mainbox {
 
 inputbar {
     margin: 8px 8px 3px 8px;
-    background-color: @yellow;
+    background-color: @orange;
     children: [prompt,entry];
 }
 
 prompt {
     padding: 5px;
     margin: 2px;
-    background-color: @dark-grey;
-    text-color: @aqua;
-    font:"Roboto Condensed Bold 13";
+    background-color: @dark;
+    text-color: @blue;
+    font:"JetBrainsMonoNerdFont Bold 10";
 }
 
 entry {
     padding:5px;
     margin:2px;
     border-color:@grey;
-    background-color:@dark-grey;
+    background-color:@dark;
     text-color:@red;
-    font:"Roboto Condensed Bold 13";
+    font:"JetBrainsMonoNerdFont Bold 10";
 }
 
 listview {
@@ -78,7 +78,7 @@ listview {
     padding:8px;
     border: 2px;
     margin:8px;
-    background-color:@dark-grey;
+    background-color:@dark;
     children:[element];
 }
 element {
@@ -99,7 +99,7 @@ element-icon{
 }
 
 element selected {
-    background-color: @yellow;
+    background-color: @orange;
     text-color: @dark;
 }
 
@@ -109,7 +109,7 @@ element selected active {
 
 message {
     expand:true;
-    background-color: @dark-grey;
+    background-color: @dark;
     children: [textbox];
 }
 
@@ -118,13 +118,13 @@ textbox {
     expand: true;
     padding:3px;
     background-color:@red-alt;
-    text-color:@dark-grey;
+    text-color:@dark;
 }
 
 error-message {
     expand: true;
     border: 2px;
     padding:5px;
-    background-color: @dark-grey;
+    background-color: @dark;
     text-color:@dark;
 }
