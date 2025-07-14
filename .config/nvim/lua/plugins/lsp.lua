@@ -17,11 +17,6 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
-		tag = "v1.32.0",
-		opts = {},
-	},
-	{
 		"glepnir/lspsaga.nvim",
 		opts = {},
 	},

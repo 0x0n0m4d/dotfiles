@@ -15,7 +15,7 @@
   - [Polybar](https://github.com/polybar/polybar) - Status Bar
   - [Rofi](https://github.com/davatorium/rofi) - dmenu replacement
   - [Picom](https://github.com/yshui/picom) - Compositor
-  - [Dvorak]() - Keyboard layout
+  - [Dvorak](https://github.com/ThePrimeagen/keyboards) - Keyboard layout
 
 ## Shell setup (Linux)
 
@@ -28,6 +28,7 @@
 ## Neovim setup
 
   - Neovim >= **0.10.0**
+  - [Solarized Osaka](https://github.com/craftzdog/solarized-osaka.nvim/) - Theme
   - Git >= **2.19.0** (*i think*)
   - [LazyVim](https://www.lazyvim.org/)
   - [Nerd Font](https://www.nerdfonts.com/) (*v3.0 or greater*) (_**optional, but needed to display some icons**_)

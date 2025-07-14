@@ -254,8 +254,9 @@ return {
 					motion = false,
 				},
 			}
-			vim.cmd([[hi FlashLabel cterm=bold gui=bold guifg=#141617 guibg=#fe8019]])
-			vim.cmd([[hi FlashMatch cterm=bold gui=bold guifg=#141617 guibg=#fabd2f]])
+			vim.cmd([[hi FlashLabel cterm=bold gui=bold guifg=#00141a guibg=#2aa198]])
+			vim.cmd([[hi FlashMatch cterm=bold gui=bold guifg=#00141a guibg=#dc322f]])
+			vim.cmd([[hi FlashCurrent cterm=bold gui=bold guifg=#00141a guibg=#f6524f]])
 			return conf
 		end,
 	},

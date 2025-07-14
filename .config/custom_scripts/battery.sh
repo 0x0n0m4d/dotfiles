@@ -12,28 +12,37 @@ test $(acpi | awk -F, '{print $1}' | awk -F: '{print $2}' | sed 's/ //g') = "Cha
 isCharging=$?
 
 sendNotification() {
-    notify-send -u critical "$percentage% battery remaining!!"
+  notify-send -u critical "$percentage% battery remaining!!"
 }
 
 main() {
-    if [ $isCharging -eq 0 ]; then
-        echo -n "%{F#8ec07c} ${percentage}%%{F-}"
-    else
-        if [ $percentage -lt 21 ]; then
-            if [[ $percentage -eq 20 ]]; then
-                sendNotification
-            fi
-            echo -n "%{F#fb4934} ${percentage}%%{F-}"
-        elif [ $percentage -lt 36 ]; then
-            echo -n "%{F#b8bb26} ${percentage}%%{F-}"
-        elif [ $percentage -lt 51 ]; then
-            echo -n "%{F#b8bb26} ${percentage}%%{F-}"
-        elif [ $percentage -lt 71 ]; then
-            echo -n "%{F#b8bb26} ${percentage}%%{F-}"
-        else
-            echo -n "%{F#b8bb26} ${percentage}%%{F-}"
-        fi
+  if [ $isCharging -eq 0 ]; then
+    echo -n "%{B#adb8b8} %{F#00141a} ${percentage}%%{F-} %{B-}"
+    if [ $(cat .sendnotification.out) -eq 1 ]; then
+      echo -n 0 >.sendnotification.out
     fi
+  else
+    if [ $percentage -lt 21 ]; then
+      if [[ $percentage -eq 20 ]]; then
+        if [ $(cat .sendnotification.out) -eq 0 ]; then
+          sendNotification
+          echo -n 1 >.sendnotification.out
+        fi
+      fi
+      echo -n "%{B#adb8b8} %{F#00141a} ${percentage}%%{F-} %{B-}"
+    elif [ $percentage -lt 36 ]; then
+      echo -n "%{B#adb8b8} %{F#00141a} ${percentage}%%{F-} %{B-}"
+    elif [ $percentage -lt 51 ]; then
+      echo -n "%{B#adb8b8} %{F#00141a} ${percentage}%%{F-} %{B-}"
+    elif [ $percentage -lt 71 ]; then
+      echo -n "%{B#adb8b8} %{F#00141a} ${percentage}%%{F-} %{B-}"
+    else
+      echo -n "%{B#adb8b8} %{F#00141a} ${percentage}%%{F-} %{B-}"
+    fi
+  fi
 }
 
+if [ ! -e .sendnotification.out ]; then
+  echo -n 0 >.sendnotification.out
+fi
 main

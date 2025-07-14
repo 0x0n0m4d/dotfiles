@@ -4,14 +4,14 @@ padding = { x = 0, y = 0 }
 dimensions = { columns = 98, lines = 24 }
 dynamic_padding = true
 decorations = "None"
-opacity = 1.0
+opacity = 0.9
 title = "O_o"
 
 [font]
 normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
 bold = { family = "JetBrainsMonoNerdFont", style = "Bold" }
 italic = { family = "JetBrainsMonoNerdFont", style = "Italic" }
-size = 9
+size = 12
 
 [mouse]
 hide_when_typing = true
@@ -21,4 +21,4 @@ style = { shape = "Block", blinking = "Always" }
 blink_timeout = 0
 
 [general]
-import = [ "~/.config/alacritty/themes/Gruv.toml" ]
+import = [ "~/.config/alacritty/themes/Solar.toml" ]

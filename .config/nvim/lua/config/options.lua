@@ -25,9 +25,9 @@ vim.opt.inccommand = "split"
 vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
 vim.opt.smarttab = true
 vim.opt.breakindent = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.wrap = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.wrap = false
 vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 vim.opt.wildignore:append({ "*/node_modules/*" })
@@ -52,6 +52,5 @@ vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 -- Add symbols
 vim.cmd([[set list listchars=tab:>\ ,trail:+,eol:$,nbsp:%]])
 
--- Theme
-vim.opt.background = "dark"
-vim.api.nvim_set_hl(0, "Visual", { nil, nil, reverse = true })
+-- Temp
+-- vim.cmd([[set noeol]])

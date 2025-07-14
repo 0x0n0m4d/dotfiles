@@ -5,11 +5,11 @@
 */
 
 * {
-    dark:#1d2021;
-    red:#cc241d;
-    blue:#458588;
+    dark:#00141a;
+    red:#dc322f;
+    blue:#278bd2;
     transparent:#00000000;
-    highlight:underline bold #ca3433;
+    highlight:underline bold #2aa198;
 
     padding:0;
     margin:0;

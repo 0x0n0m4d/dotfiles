@@ -1,15 +1,22 @@
 return {
-	"sainnhe/gruvbox-material",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		vim.g.gruvbox_material_statusline_style = "mix"
-		vim.g.gruvbox_material_foreground = "mix"
-		vim.g.gruvbox_material_background = "hard"
-		vim.g.gruvbox_material_enable_bold = 1
-		vim.g.gruvbox_material_enable_italic = 1
-		vim.g.gruvbox_material_transparent_background = 2
-		vim.g.gruvbox_material_visual = "reverse"
-		vim.g.gruvbox_material_spell_foreground = "colored"
-	end,
+	{
+		"craftzdog/solarized-osaka.nvim",
+		lazy = true,
+		priority = 1000,
+		opts = function()
+			return {
+				transparent = true,
+				styles = {
+					sidebars = "dark",
+					floats = "dark",
+				},
+				on_highlights = function(highlights, colors)
+					highlights.Visual = { reverse = true }
+					highlights.Search = { bg = colors.red500, fg = colors.base03 }
+					highlights.CurSearch = { bg = colors.cyan500, fg = colors.base03 }
+					highlights.IncSearch = { bg = colors.red700, fg = colors.base03 }
+				end,
+			}
+		end,
+	},
 }

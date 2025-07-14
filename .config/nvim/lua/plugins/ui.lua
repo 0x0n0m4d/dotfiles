@@ -17,7 +17,7 @@ return {
 		opts = {
 			options = {
 				-- globalstatus = false,
-				theme = "gruvbox-material",
+				theme = "solarized-osaka",
 			},
 		},
 	},
@@ -31,8 +31,8 @@ return {
 			require("incline").setup({
 				highlight = {
 					groups = {
-						InclineNormal = { guibg = "#fe8019", guifg = "#141617" },
-						InclineNormalNC = { guifg = "#bdae93", guibg = "#282828" },
+						InclineNormal = { guibg = "#b58900", guifg = "#012b36" },
+						InclineNormalNC = { guifg = "#9eacad", guibg = "#012b36" },
 					},
 				},
 				window = { margin = { vertical = 0, horizontal = 1 } },

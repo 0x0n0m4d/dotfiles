@@ -95,10 +95,10 @@ return {
 			-- list of named colors where we try to extract the guifg from the
 			-- list of highlight groups or use the hex color if hl not found as a fallback
 			colors = {
-				blue = "#458588",
-				red = "#fb4934",
-				green = "#b8bb26",
-				orange = "#fe8019",
+				blue = "#278bd2",
+				red = "#dc322f",
+				green = "#859901",
+				orange = "#f8520e",
 			},
 			search = {
 				command = "rg",
