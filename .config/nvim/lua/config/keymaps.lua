@@ -44,6 +44,8 @@ wk.add({
 	{ "gp", ":Lspsaga peek_definition<cr>", desc = "Show definition", mode = "n", opts },
 	{ "gd", ":Lspsaga goto_definition<cr>", desc = "Go to definition", mode = "n", opts },
 	{ "gR", ":Lspsaga rename<cr>", desc = "Rename word", mode = "n", opts },
+	-- trouble
+	{ "<leader>tt", ":Trouble todo<cr>", desc = "Trouble todos", mode = "n" },
 	-- git worktree
 	{ "<Leader>gw", group = "Git Worktree", mode = "n" },
 	{

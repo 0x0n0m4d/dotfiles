@@ -23,4 +23,8 @@ return {
 		"catppuccin/nvim",
 		enabled = false,
 	},
+	{
+		"j-hui/fidget.nvim",
+		enabled = false,
+	},
 }
