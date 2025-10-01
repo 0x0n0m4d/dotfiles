@@ -133,27 +133,147 @@ return {
 		},
 	},
 
-	-- Refactoring tool
 	{
-		"ThePrimeagen/refactoring.nvim",
-		keys = {
-			{
-				"<leader>r",
-				function()
-					require("refactoring").select_refactor()
-				end,
-				mode = "v",
-				noremap = true,
-				silent = true,
-				expr = false,
-			},
-		},
-		opts = {},
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		config = function()
+			vim.cmd([[hi RenderMarkdownH1Bg cterm=bold gui=bold ]])
+			vim.cmd([[hi RenderMarkdownH2Bg cterm=bold gui=bold ]])
+			vim.cmd([[hi RenderMarkdownH3Bg cterm=bold gui=bold ]])
+			vim.cmd([[hi RenderMarkdownH4Bg cterm=bold gui=bold ]])
+			vim.cmd([[hi RenderMarkdownH5Bg cterm=bold gui=bold ]])
+			vim.cmd([[hi RenderMarkdownH6Bg cterm=bold gui=bold ]])
+			vim.cmd([[hi RenderMarkdownBullet cterm=bold gui=bold guifg=#83a598 ]])
+			vim.cmd([[hi RenderMarkdownPending cterm=bold gui=bold guifg=#83a598 ]])
+			vim.cmd([[hi RenderMarkdownFailed cterm=bold gui=bold guifg=#fb4934 ]])
+			vim.cmd([[hi RenderMarkdownUrgent cterm=bold gui=bold guifg=#fabd2f ]])
+			require("render-markdown").setup({
+				completions = {
+					lsp = { enabled = true },
+					blink = { enabled = true },
+				},
+				heading = {
+					icons = { "󰫃 ", "󰫄 ", "󰫅 ", "󰫆 ", "󰫇 ", "󰫈 " },
+					signs = { "󰫎 " },
+				},
+				checkbox = {
+					custom = {
+						todo = {
+							raw = "[-]",
+							rendered = "󱗝 ",
+							highlight = "RenderMarkdownPending",
+							scope_highlight = nil,
+						},
+						failed = {
+							raw = "[/]",
+							rendered = "󰅘 ",
+							highlight = "RenderMarkdownFailed",
+							scope_highlight = nil,
+						},
+						urgent = {
+							raw = "[!]",
+							rendered = "󰳤 ",
+							highlight = "RenderMarkdownUrgent",
+							scope_highlight = nil,
+						},
+					},
+				},
+				callout = {
+					note = {
+						raw = "[!NOTE]",
+						rendered = " Note",
+						highlight = "RenderMarkdownInfo",
+						category = "github",
+					},
+					warning = {
+						raw = "[!WARNING]",
+						rendered = " Warning",
+						highlight = "RenderMarkdownWarn",
+						category = "github",
+					},
+					important = {
+						raw = "[!IMPORTANT]",
+						rendered = "󰨄 Important",
+						highlight = "RenderMarkdownHint",
+						category = "github",
+					},
+					todo = {
+						raw = "[!TODO]",
+						rendered = " Todo",
+						highlight = "RenderMarkdownInfo",
+						category = "obsidian",
+					},
+					done = {
+						raw = "[!DONE]",
+						rendered = "󰸞 Done",
+						highlight = "RenderMarkdownSuccess",
+						category = "obsidian",
+					},
+					question = {
+						raw = "[!QUESTION]",
+						rendered = " Question",
+						highlight = "RenderMarkdownHint",
+						category = "obsidian",
+					},
+					fail = {
+						raw = "[!FAIL]",
+						rendered = "󰛉 Fail",
+						highlight = "RenderMarkdownError",
+						category = "obsidian",
+					},
+					error = {
+						raw = "[!ERROR]",
+						rendered = "󰅚 Error",
+						highlight = "RenderMarkdownError",
+						category = "obsidian",
+					},
+					bug = {
+						raw = "[!BUG]",
+						rendered = " Bug",
+						highlight = "RenderMarkdownError",
+						category = "obsidian",
+					},
+					quote = {
+						raw = "[!QUOTE]",
+						rendered = "󱆨 Quote",
+						highlight = "RenderMarkdownQuote",
+						category = "obsidian",
+					},
+					cite = {
+						raw = "[!CITE]",
+						rendered = "󱆨 Cite",
+						highlight = "RenderMarkdownQuote",
+						category = "obsidian",
+					},
+				},
+				link = {
+					custom = {
+						web = { pattern = "^http", icon = "󰖟 " },
+						discord = { pattern = "discord%.com", icon = " " },
+						github = { pattern = "github%.com", icon = " " },
+						gitlab = { pattern = "gitlab%.com", icon = "󰮠 " },
+						google = { pattern = "google%.com", icon = " " },
+						neovim = { pattern = "neovim%.io", icon = " " },
+						reddit = { pattern = "reddit%.com", icon = " " },
+						stackoverflow = { pattern = "stackoverflow%.com", icon = "󰓌 " },
+						wikipedia = { pattern = "wikipedia%.org", icon = "󰖬 " },
+						medium = { pattern = "medium%.com", icon = "  " },
+						youtube = { pattern = "youtube%.com", icon = " " },
+						htb = { pattern = "hackthebox%.com", icon = "󰯂 " },
+						immunefi = { pattern = "immunefi%.com", icon = "󰯂 " },
+						hackerone = { pattern = "hackerone%.com", icon = "󰯂 " },
+						intigriti = { pattern = "intigriti%.com", icon = "󰯂 " },
+					},
+				},
+			})
+		end,
 	},
 
 	-- Go forward/backward with square brackets
 	{
-		"echasnovski/mini.bracketed",
+		"nvim-mini/mini.bracketed",
 		event = "BufReadPost",
 		config = function()
 			local bracketed = require("mini.bracketed")

@@ -1,7 +1,7 @@
 return {
 	-- animations
 	{
-		"echasnovski/mini.animate",
+		"nvim-mini/mini.animate",
 		event = "VeryLazy",
 		opts = function(_, opts)
 			opts.scroll = {
@@ -20,36 +20,6 @@ return {
 				theme = "gruvbox-material",
 			},
 		},
-	},
-
-	-- filename
-	{
-		"b0o/incline.nvim",
-		event = "BufReadPre",
-		priority = 1200,
-		config = function()
-			require("incline").setup({
-				highlight = {
-					groups = {
-						InclineNormal = { guibg = "#fe8019", guifg = "#141617" },
-						InclineNormalNC = { guifg = "#bdae93", guibg = "#282828" },
-					},
-				},
-				window = { margin = { vertical = 0, horizontal = 1 } },
-				hide = {
-					cursorline = true,
-				},
-				render = function(props)
-					local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-					if vim.bo[props.buf].modified then
-						filename = "[+] " .. filename
-					end
-
-					local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-					return { { icon, guifg = color }, { " " }, { filename } }
-				end,
-			})
-		end,
 	},
 
 	-- zen mode

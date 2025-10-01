@@ -1,8 +1,7 @@
 return {
 	-- tools
 	{
-		"williamboman/mason.nvim",
-		tag = "v1.11.0",
+		"mason-org/mason.nvim",
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, {
 				"selene",
@@ -26,8 +25,8 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for neovim
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			"mason-org/mason.nvim",
+			"mason-org/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 			-- Useful status updates for LSP.
@@ -159,17 +158,8 @@ return {
 				gopls = {},
 				pylsp = {},
 				volar = {},
-				-- sway_lsp = {
-				--   cmd = { "forc-lsp" },
-				--   filetypes = { "sway" },
-				--   init_options = {
-				--     -- Any initialization options
-				--     logging = { level = "trace" },
-				--   },
-				--   root_dir = function(fname)
-				--     return require("lspconfig.util").find_git_ancestor(fname)
-				--   end,
-				-- },
+				gradle_ls = {},
+				java_language_server = {},
 			},
 			setup = {},
 		},

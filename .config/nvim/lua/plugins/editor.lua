@@ -255,12 +255,12 @@ return {
 				},
 			}
 			vim.cmd([[hi FlashLabel cterm=bold gui=bold guifg=#141617 guibg=#fe8019]])
-			vim.cmd([[hi FlashMatch cterm=bold gui=bold guifg=#141617 guibg=#fabd2f]])
+			-- vim.cmd([[hi FlashMatch cterm=bold gui=bold guifg=#141617 guibg=#fabd2f]])
 			return conf
 		end,
 	},
 	{
-		"echasnovski/mini.surround",
+		"nvim-mini/mini.surround",
 		opts = {
 			-- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
 			highlight_duration = 500,
@@ -299,7 +299,7 @@ return {
 	},
 
 	{
-		"echasnovski/mini.hipatterns",
+		"nvim-mini/mini.hipatterns",
 		event = "BufReadPre",
 		opts = {
 			highlighters = {

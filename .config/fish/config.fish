@@ -1,7 +1,7 @@
 set fish_greeting
 set -Ua fish_features no-keyboard-protocols
 
-set -gx TERM xterm-256color
+set -Ux TERM xterm-256color
 
 # Handy change dir shortcuts
 abbr .. 'cd ..'
@@ -15,20 +15,20 @@ abbr mkdir 'mkdir -p'
 
 set -gx EDITOR nvim
 
-set -gx PATH bin $PATH
-set -gx PATH ~/bin $PATH
-set -gx PATH ~/.local/bin $PATH
+# python
+set PYENV_ROOT $HOME/.pyenv
+set -gx PATH $PATH $PYENV_ROOT/shims $PYENV_ROOT/bin
+pyenv rehash
 
 # rust
-set -gx PATH $PATH ~/.cargo/bin
+set -gx PATH $PATH $HOME/.cargo/bin
 
 # golang
-set -gx GOPATH ~/go/
+set -gx GOROOT /usr/local/go/
+set -gx GOPATH $HOME/go/
 set -gx PATH $PATH $GOPATH/bin/
 
-# foundryup
-set -gx PATH $PATH ~/.foundry/bin
-
+set -gx PATH $HOME/.local/bin $PATH
 # aliases
 alias g git
 alias gt 'git status'
@@ -37,13 +37,3 @@ alias gp 'git push'
 alias gl 'git pull'
 alias gc 'git commit'
 command -qv nvim && alias vim nvim
-
-# Virus Total
-set -gx VT_APIKEY ba6f75cfca4f9a6cf8cd15a620ffaf6ed57efec588f32200b4e9123e0ce4dbd0
-
-# pyenv
-set PYENV_ROOT $HOME/.pyenv
-set -gx PATH $PATH $PYENV_ROOT/shims $PYENV_ROOT/bin
-pyenv rehash
-
-export PATH="$PATH:/home/n0m4d/.local/bin"
