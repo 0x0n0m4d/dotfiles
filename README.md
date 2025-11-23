@@ -1,4 +1,4 @@
-![thumb](assets/thumb.png)
+![thumb](assets/desk.png)
 
 # 0x0n0m4d's dotfiles
 
