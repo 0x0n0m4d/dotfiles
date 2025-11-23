@@ -8,31 +8,23 @@
 
   - i3 WM
   - Shell
-  - Neovim
 
 ## I3 Setup
 
-  - [Polybar](https://github.com/polybar/polybar) - Status Bar
-  - [Rofi](https://github.com/davatorium/rofi) - dmenu replacement
-  - [Picom](https://github.com/yshui/picom) - Compositor
-  - [Dvorak](https://github.com/ThePrimeagen/keyboards) - Keyboard layout
+  - [i3](https://github.com/i3/i3) - WM
+  - [i3Blocks](https://github.com/vivien/i3blocks) - Status Bar
+  - [picom](https://github.com/yshui/picom) - Compositor
+  - [dunst](https://github.com/dunst-project/dunst) - Notification daemon
+  - [dvorak](https://github.com/ThePrimeagen/keyboards) - Keyboard layout
 
 ## Shell setup (Linux)
 
-  - [Alacritty](https://alacritty.org/) - Terminal
-  - [Fish](https://fishshell.com/) - Shell
-  - [tide](https://github.com/IlanCosman/tide) - Prompt
-  - [Nerd Fonts](https://www.nerdfonts.com/) JetBrainsMono Font
-  - [Eza](https://github.com/eza-community/eza) - `ls` replacement
-
-## Neovim setup
-
-  - Neovim >= **0.10.0**
-  - [Solarized Osaka](https://github.com/craftzdog/solarized-osaka.nvim/) - Theme
-  - Git >= **2.19.0** (*i think*)
-  - [LazyVim](https://www.lazyvim.org/)
-  - [Nerd Font](https://www.nerdfonts.com/) (*v3.0 or greater*) (_**optional, but needed to display some icons**_)
-  - a **C** compiler for `nvim_treesitter`. See [here](https://github.com/nvim-treesitter/nvim-treesitter#requirements)
-  - for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) (_**optional**_)
-    - live grep: [ripgrep](https://github.com/BurntSushi/ripgrep)
-    - find files: [fd](https://github.com/sharkdp/fd)
+  - [alacritty](https://alacritty.org/) - Terminal
+  - [zsh](https://www.zsh.org/) - Shell
+    - [zsh vi mode](https://github.com/jeffreytse/zsh-vi-mode) - Shell
+  - [nerd fonts](https://www.nerdfonts.com/) JetBrainsMono Font
+  - [neovim](https://github.com/neovim/neovim) - Editor
+    - [lazyVim](https://www.lazyvim.org/)
+  - [zellij](https://github.com/zellij-org/zellij) - Terminal Multiplexers
+    - [ghost plugin](https://github.com/vdbulcke/ghost)
+    - [zjstatus plugin](https://github.com/dj95/zjstatus)

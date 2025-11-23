@@ -1,0 +1,40 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="file:///home/n0m4d/.config/zellij/plugins/zjstatus.wasm" {
+                format_left   "#[bg=#fb4934,fg=#282828,bold] {session} {tabs}"
+                format_center ""
+                format_right  "{command_git_branch}{mode}"
+                format_space  ""
+
+                border_enabled  "false"
+
+                hide_frame_for_single_pane "true"
+
+                mode_normal        "#[fg=#282828,bg=#b8bb26,bold] {name} "
+                mode_locked        "#[fg=#282828,bg=#fb4934,bold] {name} "
+                mode_pane          "#[fg=#282828,bg=#8ec07c,bold] {name} "
+                mode_tab           "#[fg=#282828,bg=#8ec07c,bold] {name} "
+                mode_resize        "#[fg=#282828,bg=#458588,bold] {name} "
+                mode_move          "#[fg=#282828,bg=#458588,bold] {name} "
+                mode_rename_tab    "#[fg=#282828,bg=#458588,bold] {name} "
+                mode_rename_pane   "#[fg=#282828,bg=#458588,bold] {name} "
+                mode_scroll        "#[fg=#282828,bg=#fe8019,bold] {name} "
+                mode_enter_search  "#[fg=#282828,bg=#fabd2f,bold] {name} "
+                mode_search        "#[fg=#282828,bg=#fabd2f,bold] {name} "
+                mode_session       "#[fg=#282828,bg=#b16286,bold] {name} "
+                mode_prompt        "#[fg=#282828,bg=#b16286,bold] {name} "
+
+                tab_normal   "#[bg=#b16286,fg=#282828,bold] {name} "
+                tab_active   "#[bg=#458588,fg=#282828,bold] {name} "
+
+                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+                command_git_branch_format      "#[bg=#fe8019,fg=#282828,bold] {stdout} "
+                command_git_branch_interval    "10"
+                command_git_branch_rendermode  "static"
+            }
+        }
+    }
+    tab name="w0rksp4c3"
+}

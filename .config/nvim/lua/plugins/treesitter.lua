@@ -4,16 +4,10 @@ return {
 		branch = "master",
 		opts = {
 			ensure_installed = {
-				"cmake",
-				"fish",
-				"gitignore",
-				"http",
-				"rust",
-				"solidity",
 				"javascript",
-				"typescript",
-				"json",
 				"c",
+				"python",
+				"go",
 			},
 
 			-- matchup = {

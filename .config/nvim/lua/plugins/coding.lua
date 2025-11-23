@@ -247,6 +247,12 @@ return {
 						highlight = "RenderMarkdownQuote",
 						category = "obsidian",
 					},
+					ia = {
+						raw = "[!IA]",
+						rendered = "󰚩 IA",
+						highlight = "RenderMarkdownHint",
+						category = "obsidian",
+					},
 				},
 				link = {
 					custom = {

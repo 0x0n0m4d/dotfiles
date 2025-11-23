@@ -1,7 +1,7 @@
 [colors]
 [colors.primary]
 foreground = "#ebdbb2"
-background = "#141617"
+background = "#282828"
 
 [colors.dim]
 red = "#aa1d18"
@@ -16,7 +16,7 @@ white = "#bdae93"
 black = "#3c3836"
 red = "#cc241d"
 green = "#98971a"
-yellow = "#fe8019"
+yellow = "#d79921"
 blue = "#458588"
 magenta = "#b16286"
 cyan = "#689d6a"

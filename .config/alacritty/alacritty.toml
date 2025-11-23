@@ -1,5 +1,5 @@
 [window]
-padding = { x = 0, y = 0 }
+padding = { x = 5, y = 5 }
 dimensions = { columns = 98, lines = 24 }
 dynamic_padding = true
 decorations = "None"
@@ -10,7 +10,7 @@ title = "O_o"
 normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
 bold = { family = "JetBrainsMonoNerdFont", style = "Bold" }
 italic = { family = "JetBrainsMonoNerdFont", style = "Italic" }
-size = 12
+size = 10
 
 [mouse]
 hide_when_typing = true

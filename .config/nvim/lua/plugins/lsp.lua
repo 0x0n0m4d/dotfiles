@@ -10,8 +10,6 @@ return {
 				"shellcheck",
 				"shfmt",
 				"typescript-language-server",
-				"tailwindcss-language-server",
-				"nomicfoundation-solidity-language-server",
 			})
 		end,
 	},
@@ -37,11 +35,6 @@ return {
 			inlay_hints = { enabled = false },
 			---@type lspconfig.options
 			servers = {
-				tailwindcss = {
-					root_dir = function(...)
-						return require("lspconfig.util").root_pattern(".git")(...)
-					end,
-				},
 				ts_ls = {
 					root_dir = function(...)
 						return require("lspconfig.util").root_pattern(".git")(...)
@@ -138,14 +131,6 @@ return {
 						},
 					},
 				},
-				solidity_ls_nomicfoundation = {
-					root_dir = function(...)
-						return require("lspconfig.util").root_pattern(".git")(...)
-					end,
-					single_file_support = true,
-					filetypes = { "solidity" },
-					cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
-				},
 				intelephense = {},
 				cmake = {
 					cmd = { "cmake-laguage-server" },
@@ -153,13 +138,9 @@ return {
 				clangd = {
 					cmd = { "clangd" },
 				},
-				ruby_lsp = {},
 				rust_analyzer = {},
 				gopls = {},
 				pylsp = {},
-				volar = {},
-				gradle_ls = {},
-				java_language_server = {},
 			},
 			setup = {},
 		},
