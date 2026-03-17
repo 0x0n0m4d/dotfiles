@@ -18,7 +18,10 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "markdown" },
 	callback = function()
-		vim.cmd([[set nowrap]])
+		-- vim.cmd([[set nowrap]])
 		vim.cmd([[set nospell]])
+		vim.cmd([[hi markdownBold cterm=bold gui=bold guifg=#fabd2f ]])
+		vim.cmd([[hi markdownItalic cterm=italic gui=italic guifg=#fabd2f ]])
+		vim.cmd([[hi markdownBoldItalic cterm=bold gui=bold guifg=#fabd2f ]])
 	end,
 })

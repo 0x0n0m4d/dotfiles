@@ -29,5 +29,11 @@ layout {
             }
         }
     }
+    tab name="t3rm41" {
+        pane command="su" {
+            args "-" "t3rm41"
+        }
+    }
+    tab name="m1tm"
     tab name="w0rksp4c3"
 }

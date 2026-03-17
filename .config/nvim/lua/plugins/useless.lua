@@ -27,4 +27,8 @@ return {
 		"j-hui/fidget.nvim",
 		enabled = false,
 	},
+	{
+		"folke/todo-comments.nvim",
+		enabled = false,
+	},
 }

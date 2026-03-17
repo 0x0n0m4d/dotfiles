@@ -10,6 +10,7 @@ return {
 				"shellcheck",
 				"shfmt",
 				"typescript-language-server",
+				"nomicfoundation-solidity-language-server",
 			})
 		end,
 	},
@@ -131,9 +132,22 @@ return {
 						},
 					},
 				},
+				solidity_ls_nomicfoundation = {
+					root_dir = function(...)
+						return require("lspconfig.util").root_pattern(
+							"foundry.toml",
+							"hardhat.config.js",
+							"hardhat.config.ts",
+							".git"
+						)(...)
+					end,
+					single_file_support = true,
+					filetypes = { "solidity" },
+					cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+				},
 				intelephense = {},
 				cmake = {
-					cmd = { "cmake-laguage-server" },
+					cmd = { "cmake-language-server" },
 				},
 				clangd = {
 					cmd = { "clangd" },
@@ -141,6 +155,9 @@ return {
 				rust_analyzer = {},
 				gopls = {},
 				pylsp = {},
+				marksman = {
+					single_file_support = true,
+				},
 			},
 			setup = {},
 		},

@@ -91,6 +91,19 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+git_branch() {
+    res=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [ -n "$res" ]; then
+        echo "(%B%F{#fe8019}$res%b%F{reset})"
+    fi
+}
+
+cmd_time() {
+    if [[ $elapsed -gt 0 ]]; then
+        echo " ${elapsed}s"
+    fi
+}
+
 configure_prompt() {
     prompt_symbol=㉿
     # Skull emoji for root terminal
@@ -101,8 +114,8 @@ configure_prompt() {
             # Right-side prompt with exit codes and background processes
             ;;
         oneline)
-            PROMPT=$'%B%F{14}${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{9}%n%b%F{reset}㉿%B%F{10}%m%b%F{reset}:%B%F{5}%~%b%F{reset}%(#.#.$) '
-            RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
+            PROMPT=$'%B%F{14}${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{9}%n%b%F{reset}㉿%B%F{10}%m%b%F{reset}:%B%F{5}%1~%b%F{reset}$(git_branch)%(#.#.$) '
+            RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)$(cmd_time)'
             ;;
         backtrack)
             PROMPT=$'${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{red}%n㉿%m%b%F{reset}:%B%F{blue}%~%b%F{reset}%(#.#.$) '
@@ -197,6 +210,10 @@ xterm*|rxvt*|Eterm|aterm|kterm|gnome*|alacritty)
     ;;
 esac
 
+preexec() {
+    timer=${timer:-$SECONDS}
+}
+
 precmd() {
     # Print the previously configured title
     print -Pnr -- "$TERM_TITLE"
@@ -208,6 +225,11 @@ precmd() {
         else
             print ""
         fi
+    fi
+
+    if [ $timer ]; then
+        elapsed=$((SECONDS - timer))
+        unset timer
     fi
 }
 
@@ -254,7 +276,7 @@ fi
 # aliases
 alias ll='eza -la --group -s extension --icons=always --group-directories-first'
 alias tree='eza -la -s extension --icons=always -T'
-alias vim='nvim'
+alias v='nvim'
 alias cal='ncal -b'
 alias cat='batcat --theme "gruvbox-dark"'
 
@@ -263,6 +285,10 @@ export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:/usr/local/go/bin
 
+# AI helper
+export AI_KEY='SECRET'
+source $HOME/.config/zchat/script/zch.sh
+
 # Better vim
 source $HOME/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZVM_VI_HIGHLIGHT_BACKGROUND=
@@ -270,14 +296,16 @@ ZVM_VI_HIGHLIGHT_FOREGROUND=
 
 # zellij
 alias z="zellij"
-alias zw="zellij -l work"
+alias zw="zellij -l web_hack"
+alias za="zellij -l audit"
 alias zl="zellij list-sessions"
 alias zda="zellij delete-all-sessions"
-za() {
+zatt() {
     zellij attach "$@"
 }
 zd() {
-    zellij kill-session "$@"
+    zellij delete-session "$@"
 }
 
-export EDITOR='vim'
+export EDITOR='nvim'
+TARGET=''

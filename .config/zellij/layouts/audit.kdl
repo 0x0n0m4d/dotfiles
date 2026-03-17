@@ -5,12 +5,10 @@ layout {
             plugin location="file:///home/n0m4d/.config/zellij/plugins/zjstatus.wasm" {
                 format_left   "#[bg=#fb4934,fg=#282828,bold] {session} {tabs}"
                 format_center ""
-                format_right  "{command_git_branch}{mode}"
+                format_right  "{mode}"
                 format_space  ""
 
                 border_enabled  "false"
-
-                hide_frame_for_single_pane "true"
 
                 mode_normal        "#[fg=#282828,bg=#b8bb26,bold] {name} "
                 mode_locked        "#[fg=#282828,bg=#fb4934,bold] {name} "
@@ -28,16 +26,13 @@ layout {
 
                 tab_normal   "#[bg=#b16286,fg=#282828,bold] {name} "
                 tab_active   "#[bg=#458588,fg=#282828,bold] {name} "
-
-                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
-                command_git_branch_format      "#[bg=#fe8019,fg=#282828,bold] {stdout} "
-                command_git_branch_interval    "10"
-                command_git_branch_rendermode  "static"
             }
         }
     }
-    tab name="m1tm" {
-        pane command="mitmproxy"
+    tab name="t3rm41" {
+        pane command="su" {
+            args "-" "t3rm41"
+        }
     }
     tab name="w0rksp4c3"
 }

@@ -165,9 +165,11 @@ keybinds clear-defaults=true {
                 shell "zsh"      // required ("bash", "fish", "zsh")
                 shell_flag "-ic" // required ("-ic",  "-c",    "-ic")
                 global_completion r#"
-                    tf apply -auto-approve
-                    cargo build
-                    go test -v  ./...
+                    sudo vim /etc/hosts
+                    sudo vim /etc/krb5.conf
+                    python -m http.server
+                    nc -lnvp 9000
+                    ngrok http 8000
                 "#
             }
         }
@@ -343,7 +345,7 @@ theme "gruvbox-dark"
 //   - true (default, enabled)
 //   - false
 // 
-pane_frames true
+pane_frames false
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -399,7 +401,7 @@ pane_frames true
  
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
-// scrollback_editor "/usr/bin/vim"
+scrollback_editor "/home/n0m4d/.local/bin/nvim"
  
 // A fixed name to always give the Zellij session.
 // Consider also setting `attach_to_session true,`
