@@ -2,4 +2,4 @@
 
 HOUR=$(date '+%H:%M')
 
-echo "<span bgcolor='#83a598' color='#282828'>  $HOUR  </span>\n"
+echo "<span bgcolor='#282828' color='#83a598'>  ${HOUR}  </span>\n"

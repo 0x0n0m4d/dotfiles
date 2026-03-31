@@ -1,4 +1,4 @@
-![thumb](assets/desk.png)
+![thumb](assets/another_thumb.png)
 
 # 0x0n0m4d's dotfiles
 
@@ -19,12 +19,12 @@
 
 ## Shell setup (Linux)
 
-  - [alacritty](https://alacritty.org/) - Terminal
+  - [kitty](https://sw.kovidgoyal.net/kitty/) - Terminal
   - [zsh](https://www.zsh.org/) - Shell
     - [zsh vi mode](https://github.com/jeffreytse/zsh-vi-mode) - Shell
   - [nerd fonts](https://www.nerdfonts.com/) JetBrainsMono Font
   - [neovim](https://github.com/neovim/neovim) - Editor
     - [lazyVim](https://www.lazyvim.org/)
-  - [zellij](https://github.com/zellij-org/zellij) - Terminal Multiplexers
-    - [ghost plugin](https://github.com/vdbulcke/ghost)
-    - [zjstatus plugin](https://github.com/dj95/zjstatus)
+  - [chawan terminal browser](https://chawan.net/index.html)
+  - [opencode](https://opencode.ai/)
+  - [fabric-ai](https://github.com/danielmiessler/fabric)

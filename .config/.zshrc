@@ -278,34 +278,37 @@ alias ll='eza -la --group -s extension --icons=always --group-directories-first'
 alias tree='eza -la -s extension --icons=always -T'
 alias v='nvim'
 alias cal='ncal -b'
-alias cat='batcat --theme "gruvbox-dark"'
+alias cat='batcat --theme "gruvbox-dark" -p'
 
 # path
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:/usr/local/go/bin
 
-# AI helper
-export AI_KEY='SECRET'
-source $HOME/.config/zchat/script/zch.sh
+# zig
+export PATH=$PATH:/opt/zig
 
 # Better vim
 source $HOME/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZVM_VI_HIGHLIGHT_BACKGROUND=
 ZVM_VI_HIGHLIGHT_FOREGROUND=
 
-# zellij
-alias z="zellij"
-alias zw="zellij -l web_hack"
-alias za="zellij -l audit"
-alias zl="zellij list-sessions"
-alias zda="zellij delete-all-sessions"
-zatt() {
-    zellij attach "$@"
+# w3m
+chas() {
+    cha "https://duckduckgo.com/?t=ftsa&q=$@&ai=web"
 }
-zd() {
-    zellij delete-session "$@"
-}
+
+# pnpm
+export PNPM_HOME="/home/n0m4d/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# nim
+export CHA_LIBEXEC_DIR="/usr/local/libexec/chawan"
+export PATH=$PATH:/home/n0m4d/.nimble/bin
 
 export EDITOR='nvim'
 TARGET=''
+

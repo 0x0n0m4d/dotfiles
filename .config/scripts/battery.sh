@@ -4,7 +4,7 @@ STATUS=$(cat /sys/class/power_supply/BAT1/uevent | grep 'STATUS=' | awk -F= '{pr
 PERCENTAGE=$(cat /sys/class/power_supply/BAT1/uevent | grep 'CAPACITY=' | awk -F= '{print $2}')
 
 if [ $STATUS = "Discharging" ]; then
-    BG_COLOR="#b8bb26"
+    FG_COLOR="#b8bb26"
     if [ $PERCENTAGE -gt 80 ]; then
         SYMBOL=""
     elif [ $PERCENTAGE -gt 50 ]; then
@@ -15,11 +15,11 @@ if [ $STATUS = "Discharging" ]; then
         SYMBOL=""
     else
         SYMBOL=""
-        BG_COLOR="#fb4934"
+        FG_COLOR="#fb4934"
     fi
 else
     SYMBOL=""
-    BG_COLOR="#8ec07c"
+    FG_COLOR="#8ec07c"
 fi
 
-echo "<span bgcolor='$BG_COLOR' color='#282828'>  $SYMBOL $PERCENTAGE%  </span>"
+echo "<span bgcolor='#282828' color='${FG_COLOR}'>  ${SYMBOL} ${PERCENTAGE}%  </span>"

@@ -141,7 +141,7 @@ return {
 							".git"
 						)(...)
 					end,
-					single_file_support = true,
+					single_file_support = false,
 					filetypes = { "solidity" },
 					cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
 				},

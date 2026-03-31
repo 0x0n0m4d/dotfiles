@@ -83,6 +83,62 @@ return {
 				heading = {
 					signs = { "󰫎 " },
 				},
+				latex = {
+					enabled = true,
+					render_modes = false,
+					converter = { "utftex" },
+					top_pad = 0,
+					bottom_pad = 0,
+				},
+				win_options = {
+					wrap = {
+						default = true,
+						rendered = true,
+					},
+				},
+				bullet = {
+					enabled = true,
+					ordered_icons = function(ctx)
+						local index = ctx.index
+						local function to_letter(n)
+							return string.char(string.byte("a") + (n - 1) % 26)
+						end
+						local function to_roman(n)
+							local map = {
+								{ 1000, "m" },
+								{ 900, "cm" },
+								{ 500, "d" },
+								{ 400, "cd" },
+								{ 100, "c" },
+								{ 90, "xc" },
+								{ 50, "l" },
+								{ 40, "xl" },
+								{ 10, "x" },
+								{ 9, "ix" },
+								{ 5, "v" },
+								{ 4, "iv" },
+								{ 1, "i" },
+							}
+							local result = ""
+							for _, pair in ipairs(map) do
+								while n >= pair[1] do
+									result = result .. pair[2]
+									n = n - pair[1]
+								end
+							end
+							return result
+						end
+						local level = (ctx.level or 1)
+						local cycle = (level - 1) % 3 + 1
+						if cycle == 1 then
+							return index .. "."
+						elseif cycle == 2 then
+							return to_letter(index) .. "."
+						else
+							return to_roman(index) .. "."
+						end
+					end,
+				},
 				checkbox = {
 					custom = {
 						todo = {
@@ -201,7 +257,16 @@ return {
 			})
 		end,
 	},
-
+	{
+		"brianhuster/live-preview.nvim",
+		dependencies = {
+			-- You can choose one of the following pickers
+			"nvim-telescope/telescope.nvim",
+			"ibhagwan/fzf-lua",
+			"nvim-mini/mini.pick",
+			"folke/snacks.nvim",
+		},
+	},
 	{
 		"PhantomYdn/fabric-ai.nvim",
 		cmd = { "Fabric" },
@@ -210,7 +275,7 @@ return {
 		},
 		opts = {
 			-- Default configuration (all optional)
-			fabric_path = "fabric", -- Path to Fabric CLI
+			fabric_path = "/home/n0m4d/go/bin/fabric", -- Path to Fabric CLI
 			patterns_path = nil, -- Custom patterns dir (auto-detect if nil)
 			timeout = 300000, -- Command timeout in ms (5 minutes)
 			window = {
@@ -222,6 +287,7 @@ return {
 		keys = {
 			-- fabric-ai.nvim doesn't have default keymappings
 			{ "<leader>fa", ":'<,'>Fabric<CR>", mode = "v", desc = "Fabric AI" },
+			{ "<leader>fa", ":%Fabric<CR>", mode = "n", desc = "Fabric AI" },
 			{ "<leader>fu", ":Fabric url<CR>", mode = "n", desc = "Fabric URL" },
 		},
 	},

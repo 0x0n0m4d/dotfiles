@@ -34,7 +34,7 @@ else
         PERCENTAGE=$((100 * (SIGNAL + 90) / 60))
     fi
 
-    BG_COLOR="#d3869b"
+    FG_COLOR="#d3869b"
     if [ $PERCENTAGE -gt 80 ]; then
         SYMBOL="󰤨"
     elif [ $PERCENTAGE -gt 50 ]; then
@@ -43,10 +43,10 @@ else
         SYMBOL="󰤢"
     elif [ $PERCENTAGE -gt 10 ]; then
         SYMBOL="󰤟"
-        BG_COLOR="#fb4934"
+        FG_COLOR="#fb4934"
     else
         SYMBOL="󰤯"
-        BG_COLOR="#fb4934"
+        FG_COLOR="#fb4934"
     fi
 
     OUT=$(awk -v i="$INTERFACE" '$0 ~ i {print $2, $10}' /proc/net/dev)
@@ -83,5 +83,5 @@ else
         TX_UNIT="Kbps"
     fi
 
-    echo "<span bgcolor='$BG_COLOR' color='#282828'>  $SYMBOL $PERCENTAGE% / ▼ ${RX_SPEED}${RX_UNIT} ▲ ${TX_SPEED}${RX_UNIT}  </span>\n"
+    echo "<span bgcolor='#282828' color='${FG_COLOR}'>  ${SYMBOL} ${PERCENTAGE}% / ▼ ${RX_SPEED}${RX_UNIT} ▲ ${TX_SPEED}${RX_UNIT}  </span>\n"
 fi

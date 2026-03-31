@@ -273,6 +273,7 @@ return {
 				find_left = "<leader>mF", -- Find surrounding (to the left)
 				highlight = "<leader>mh", -- Highlight surrounding
 				replace = "<leader>mr", -- Replace surrounding
+				reminder = "<leader>mR",
 				update_n_lines = "<leader>mn", -- Update `n_lines`
 
 				suffix_last = "l", -- Suffix to search with "prev" method
@@ -285,7 +286,7 @@ return {
 			-- Whether to respect selection type:
 			-- - Place surroundings on separate lines in linewise mode.
 			-- - Place surroundings on each line in blockwise mode.
-			respect_selection_type = false,
+			respect_selection_type = true,
 
 			-- How to search for surrounding (first inside current line, then inside
 			-- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
@@ -332,7 +333,7 @@ return {
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
 
-			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
+			opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
 				wrap_results = true,
 				layout_strategy = "horizontal",
 				layout_config = { prompt_position = "top" },
@@ -344,16 +345,17 @@ return {
 			})
 			opts.pickers = {
 				diagnostics = {
-					theme = "dropdown",
+					theme = "gruvbox",
 					initial_mode = "normal",
 					layout_config = {
 						preview_cutoff = 9999,
 					},
 				},
 			}
+			opts.extensions = {}
+
 			telescope.setup(opts)
 			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("git_worktree")
 		end,
 	},
 	{

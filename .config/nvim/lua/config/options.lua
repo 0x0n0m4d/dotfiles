@@ -2,6 +2,18 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 vim.g.mapleader = " "
+vim.g.clipboard = {
+	name = "xclip",
+	copy = {
+		["+"] = "xclip -selection clipboard",
+		["*"] = "xclip -selection primary",
+	},
+	paste = {
+		["+"] = "xclip -selection clipboard -o",
+		["*"] = "xclip -selection primary -o",
+	},
+	cache_enabled = 1, -- cache the clipboard content inside Neovim's process
+}
 
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
