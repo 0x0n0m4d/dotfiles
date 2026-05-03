@@ -34,6 +34,7 @@ local function jump_prev_link()
 		vim.notify("No previous link found", vim.log.levels.INFO)
 	end
 end
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "markdown" },
 	callback = function(ev)

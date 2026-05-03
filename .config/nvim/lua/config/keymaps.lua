@@ -60,5 +60,47 @@ wk.add({
 		desc = "Git create worktrees",
 		mode = "n",
 	},
+	-- quick note
+	{ "<Leader>n", group = "Quick Note", icon = "󰧭 " },
+	{
+		"<Leader>nn",
+		":lua require('quicknote').NewNoteAtCurrentLine()<cr>",
+		desc = "New quick note on line.",
+		mode = "n",
+		icon = "󰧭 ",
+		opts,
+	},
+	{
+		"<Leader>no",
+		":lua require('quicknote').OpenNoteAtCurrentLine()<cr>",
+		desc = "Open quick note on line.",
+		mode = "n",
+		icon = "󰧭 ",
+		opts,
+	},
+	{
+		"<Leader>nd",
+		":lua require('quicknote').DeleteNoteAtCurrentLine()<cr>",
+		desc = "Delete quick note on line.",
+		mode = "n",
+		icon = "󰧭 ",
+		opts,
+	},
+	{
+		"<Leader>n]",
+		":lua require('quicknote').JumpToNextNote()<cr>",
+		desc = "Goto next quick note.",
+		mode = "n",
+		icon = "󰧭 ",
+		opts,
+	},
+	{
+		"<Leader>n[",
+		":lua require('quicknote').JumpToPreviousNote()<cr>",
+		desc = "Goto previous quick note.",
+		mode = "n",
+		icon = "󰧭 ",
+		opts,
+	},
 })
 require("which-key").setup({ preset = "modern" })

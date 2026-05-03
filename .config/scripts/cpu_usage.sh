@@ -1,9 +1,9 @@
 #!/bin/bash
 
 USAGE=$(mpstat 1 1 | awk '/Average:/ {printf("%s\n", $(NF-9))}')
-FG_COLOR="#8ec07c"
-if [ $USAGE -ge 80 ]; then
-    FG_COLOR="#fb4934"
+FG_COLOR="#fc8b02"
+if [ $USAGE -ge 70 ]; then
+    FG_COLOR="#915001"
 fi
 
-echo "<span bgcolor='#282828' color='${FG_COLOR}'>   ${USAGE}%  </span>"
+echo "<span bgcolor='#000000' color='${FG_COLOR}'>  ${USAGE}% </span>"

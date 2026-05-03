@@ -1,0 +1,32 @@
+# ── Keymaps ─────────────────────────────────────────────────
+# tabs
+keybind = ctrl+shift+t=new_tab
+
+# splits
+keybind = ctrl+shift+_=new_split:right
+keybind = ctrl+shift+s=new_split:down
+keybind = ctrl+shift+f=toggle_split_zoom
+keybind = ctrl+shift+e=equalize_splits
+
+# pane navigation
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+j=goto_split:down
+
+# pane resize
+keybind = ctrl+shift+r>h=resize_split:left,40
+keybind = ctrl+shift+r>l=resize_split:right,40
+keybind = ctrl+shift+r>k=resize_split:up,40
+keybind = ctrl+shift+r>j=resize_split:down,40
+
+# close current split
+keybind = ctrl+shift+w=close_surface
+
+# close current tab
+keybind = ctrl+shift+x=close_tab
+
+# disable keys
+keybind = ctrl+shift+q=ignore
+keybind = ctrl+t=ignore
+keybind = shift+enter=ignore

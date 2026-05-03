@@ -152,7 +152,6 @@ return {
 				clangd = {
 					cmd = { "clangd" },
 				},
-				rust_analyzer = {},
 				gopls = {},
 				pylsp = {},
 				marksman = {

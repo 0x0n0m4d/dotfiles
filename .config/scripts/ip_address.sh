@@ -14,4 +14,4 @@ else
     IP="0.0.0.0"
 fi
 
-echo "<span bgcolor='#282828' color='#fb4934'>  󰀂 ${IP}  </span>"
+echo "<span bgcolor='#000000' color='#fc8b02'>󰀂 ${IP} </span>"

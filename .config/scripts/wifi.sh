@@ -20,9 +20,9 @@ if [ ! -f $RX_FILE ] || [ ! -f $TX_FILE ]; then
 fi
 
 if [ ! -d "/sys/class/net/${INTERFACE}/" ] || [ ! -f "/sys/class/net/${INTERFACE}/operstate" ]; then
-    echo "<span bgcolor='#cc241d' color='#282828'>    </span>\n"
+    echo "<span color='#915001' bgcolor='#000000'>    </span>\n"
 elif [ -z $SSID ]; then
-    echo "<span bgcolor='#cc241d' color='#282828'>  󰤭   </span>\n"
+    echo "<span color='#915001' bgcolor='#000000'>  󰤭   </span>\n"
 else
     SIGNAL=$(iw dev $INTERFACE link | grep signal | awk '{print $2}')
 
@@ -34,7 +34,7 @@ else
         PERCENTAGE=$((100 * (SIGNAL + 90) / 60))
     fi
 
-    FG_COLOR="#d3869b"
+    FG_COLOR="#fc8b02"
     if [ $PERCENTAGE -gt 80 ]; then
         SYMBOL="󰤨"
     elif [ $PERCENTAGE -gt 50 ]; then
@@ -43,10 +43,10 @@ else
         SYMBOL="󰤢"
     elif [ $PERCENTAGE -gt 10 ]; then
         SYMBOL="󰤟"
-        FG_COLOR="#fb4934"
+        FG_COLOR="#915001"
     else
         SYMBOL="󰤯"
-        FG_COLOR="#fb4934"
+        FG_COLOR="#915001"
     fi
 
     OUT=$(awk -v i="$INTERFACE" '$0 ~ i {print $2, $10}' /proc/net/dev)
@@ -83,5 +83,5 @@ else
         TX_UNIT="Kbps"
     fi
 
-    echo "<span bgcolor='#282828' color='${FG_COLOR}'>  ${SYMBOL} ${PERCENTAGE}% / ▼ ${RX_SPEED}${RX_UNIT} ▲ ${TX_SPEED}${RX_UNIT}  </span>\n"
+    echo "<span bgcolor='#000000' color='${FG_COLOR}'> ${SYMBOL} ${PERCENTAGE}% / ▼ ${RX_SPEED}${RX_UNIT} ▲ ${TX_SPEED}${RX_UNIT} </span>\n"
 fi

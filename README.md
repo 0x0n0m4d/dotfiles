@@ -1,4 +1,4 @@
-![thumb](assets/another_thumb.png)
+![thumb](assets/thumb.png)
 
 # 0x0n0m4d's dotfiles
 
@@ -15,16 +15,19 @@
   - [i3Blocks](https://github.com/vivien/i3blocks) - Status Bar
   - [picom](https://github.com/yshui/picom) - Compositor
   - [dunst](https://github.com/dunst-project/dunst) - Notification daemon
-  - [dvorak](https://github.com/ThePrimeagen/keyboards) - Keyboard layout
+  - [dvorak](https://github.com/0x0n0m4d/keyboards) - Keyboard layout
 
 ## Shell setup (Linux)
 
-  - [kitty](https://sw.kovidgoyal.net/kitty/) - Terminal
+  - [ghostty](https://ghostty.org/) - Terminal
   - [zsh](https://www.zsh.org/) - Shell
     - [zsh vi mode](https://github.com/jeffreytse/zsh-vi-mode) - Shell
   - [nerd fonts](https://www.nerdfonts.com/) JetBrainsMono Font
   - [neovim](https://github.com/neovim/neovim) - Editor
     - [lazyVim](https://www.lazyvim.org/)
   - [chawan terminal browser](https://chawan.net/index.html)
-  - [opencode](https://opencode.ai/)
-  - [fabric-ai](https://github.com/danielmiessler/fabric)
+  - [claude agent](https://claude.com/solutions/agents)
+  - [mitmproxy](https://www.mitmproxy.org/)
+  - [sc-im](https://github.com/andmarti1424/sc-im)
+  - [pomo](https://github.com/Bahaaio/pomo)
+  - [calcurse](https://github.com/lfos/calcurse)

@@ -1,0 +1,73 @@
+# ============================================================
+#  Ghostty — Retro Phosphor Amber Config
+# ============================================================
+
+# ── Shaders ─────────────────────────────────────────────────
+custom-shader = ./shaders/phosphor-amber.glsl
+
+# Required for animated effects (walking scanline, jitter, noise)
+custom-shader-animation = always
+
+# ── Font ────────────────────────────────────────────────────
+font-family = "JetBrainsMono Nerd Font"
+font-size = 10
+
+# ── Colors ──────────────────────────────────────────────────
+# The shader converts everything to amber monochrome.
+# These palette colors only affect *luminance contrast* between
+# differently colored terminal text — keep them varied in brightness.
+# Dark/muted → the shader maps to dim amber
+# Bright      → the shader maps to bright amber
+
+background   = #000000
+foreground   = #ff6e00
+cursor-color = #ff6e00
+cursor-style = block
+
+# ANSI 0–7
+palette = 0=#000000
+palette = 1=#a84300
+palette = 2=#e26200
+palette = 3=#db5a04
+palette = 4=#964100
+palette = 5=#a54700
+palette = 6=#e06100
+palette = 7=#ff6e00
+
+# ANSI 8–15
+palette = 8=#2d1300
+palette = 9=#a84300
+palette = 10=#e26200
+palette = 11=#db5a04
+palette = 12=#964100
+palette = 13=#a54700
+palette = 14=#e06100
+palette = 15=#ff6e00
+
+# ── Window ──────────────────────────────────────────────────
+window-padding-x = 3
+window-padding-y = 3
+# Slight transparency lets the shader vignette feel deeper
+background-opacity = 0.97
+mouse-scroll-multiplier = discrete:6,precision:6
+
+# ── Split ──────────────────────────────────────────────────
+split-divider-color = #2d1300
+unfocused-split-opacity = 1
+
+# ── Cursor ──────────────────────────────────────────────────
+# A blinking block cursor fits the retro feel
+cursor-style = block
+cursor-style-blink = true
+
+# ── Keymaps ─────────────────────────────────────────────────
+config-file = ./keymaps.ghostty
+
+# ── Misc ────────────────────────────────────────────────────
+# bold-is-bright makes bold text map to brighter amber — great for headers
+bold-is-bright = true
+window-show-tab-bar = never
+window-decoration = none
+resize-overlay = never
+scrollbar = never
+window-inherit-working-directory = true

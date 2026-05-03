@@ -1,47 +1,38 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "master",
-		opts = {
-			ensure_installed = {
+		build = ":TSUpdate",
+		lazy = false,
+		opts = {},
+		config = function(_, opts)
+			vim.opt.runtimepath:append("/home/n0m4d/.local/share/nvim/site")
+
+			require("nvim-treesitter").setup(vim.tbl_extend("force", opts, {
+				parser_install_dir = "/home/n0m4d/.local/share/nvim/site",
+				highlight = { enable = true },
+			}))
+			require("nvim-treesitter").install({
 				"javascript",
+				"typescript",
 				"c",
+				"cpp",
 				"python",
 				"go",
-			},
-
-			-- matchup = {
-			-- 	enable = true,
-			-- },
-
-			-- https://github.com/nvim-treesitter/playground#query-linter
-			query_linter = {
-				enable = true,
-				use_virtual_text = true,
-				lint_events = { "BufWrite", "CursorHold" },
-			},
-
-			playground = {
-				enable = true,
-				disable = {},
-				updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-				persist_queries = true, -- Whether the query persists across vim sessions
-				keybindings = {
-					toggle_query_editor = "o",
-					toggle_hl_groups = "i",
-					toggle_injected_languages = "t",
-					toggle_anonymous_nodes = "a",
-					toggle_language_display = "I",
-					focus_language = "f",
-					unfocus_language = "F",
-					update = "R",
-					goto_node = "<cr>",
-					show_help = "?",
-				},
-			},
-		},
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
+				"solidity",
+				"markdown",
+				"markdown_inline",
+				"rust",
+				"json",
+				"php",
+				"ruby",
+			})
+			-- New v1.0 requires manual attachment per buffer
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "*",
+				callback = function(args)
+					pcall(vim.treesitter.start, args.buf)
+				end,
+			})
 
 			-- MDX
 			vim.filetype.add({

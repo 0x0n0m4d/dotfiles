@@ -293,13 +293,8 @@ source $HOME/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZVM_VI_HIGHLIGHT_BACKGROUND=
 ZVM_VI_HIGHLIGHT_FOREGROUND=
 
-# w3m
-chas() {
-    cha "https://duckduckgo.com/?t=ftsa&q=$@&ai=web"
-}
-
 # pnpm
-export PNPM_HOME="/home/n0m4d/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -307,8 +302,9 @@ esac
 
 # nim
 export CHA_LIBEXEC_DIR="/usr/local/libexec/chawan"
-export PATH=$PATH:/home/n0m4d/.nimble/bin
+export PATH=$PATH:$HOME/.nimble/bin
 
 export EDITOR='nvim'
-TARGET=''
+TARGET='' # Hack The Box stuff
 
+GITHUB_TOKEN="REDACTED"
