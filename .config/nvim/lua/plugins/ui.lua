@@ -17,7 +17,7 @@ return {
 		opts = {
 			options = {
 				-- globalstatus = false,
-				theme = "gruvbox-material",
+				theme = "solarized-osaka",
 			},
 		},
 	},

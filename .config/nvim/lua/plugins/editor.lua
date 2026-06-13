@@ -254,7 +254,7 @@ return {
 					motion = false,
 				},
 			}
-			vim.cmd([[hi FlashLabel cterm=bold gui=bold guifg=#141617 guibg=#fe8019]])
+			vim.cmd([[hi FlashLabel cterm=bold gui=bold guifg=#ffffff guibg=#b23200]])
 			-- vim.cmd([[hi FlashMatch cterm=bold gui=bold guifg=#141617 guibg=#fabd2f]])
 			return conf
 		end,
@@ -420,6 +420,22 @@ return {
 				tick = 251ULL, -- display_tick value
 				wp = "cdata<struct 112 *>: 0x560b56519a50", -- win_T pointer handle
 			})
+		end,
+	},
+	{
+		"mikesmithgh/kitty-scrollback.nvim",
+		enabled = true,
+		lazy = true,
+		cmd = {
+			"KittyScrollbackGenerateKittens",
+			"KittyScrollbackCheckHealth",
+			"KittyScrollbackGenerateCommandLineEditing",
+		},
+		event = { "User KittyScrollbackLaunch" },
+		-- version = '*', -- latest stable version, may have breaking changes if major version changed
+		-- version = '^6.0.0', -- pin major version, include fixes and features that do not have breaking changes
+		config = function()
+			require("kitty-scrollback").setup()
 		end,
 	},
 }

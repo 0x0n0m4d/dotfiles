@@ -65,16 +65,16 @@ return {
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		config = function()
-			vim.cmd([[hi RenderMarkdownH1Bg cterm=bold gui=bold guifg=#b8bb26 ]])
-			vim.cmd([[hi RenderMarkdownH2Bg cterm=bold gui=bold guifg=#fe8019 ]])
-			vim.cmd([[hi RenderMarkdownH3Bg cterm=bold gui=bold guifg=#d3869b]])
-			vim.cmd([[hi RenderMarkdownH4Bg cterm=bold gui=bold guifg=#83a598]])
-			vim.cmd([[hi RenderMarkdownH5Bg cterm=bold gui=bold guifg=#fb4934]])
-			vim.cmd([[hi RenderMarkdownH6Bg cterm=bold gui=bold guifg=#fabd2f]])
-			vim.cmd([[hi RenderMarkdownBullet cterm=bold gui=bold guifg=#83a598 ]])
-			vim.cmd([[hi RenderMarkdownPending cterm=bold gui=bold guifg=#83a598 ]])
-			vim.cmd([[hi RenderMarkdownFailed cterm=bold gui=bold guifg=#fb4934 ]])
-			vim.cmd([[hi RenderMarkdownUrgent cterm=bold gui=bold guifg=#fabd2f ]])
+			vim.cmd([[hi RenderMarkdownH1Bg cterm=bold gui=bold guifg=#cc3900 ]])
+			vim.cmd([[hi RenderMarkdownH2Bg cterm=bold gui=bold guifg=#007bd3 ]])
+			vim.cmd([[hi RenderMarkdownH3Bg cterm=bold gui=bold guifg=#158c82]])
+			vim.cmd([[hi RenderMarkdownH4Bg cterm=bold gui=bold guifg=#cc9f00]])
+			vim.cmd([[hi RenderMarkdownH5Bg cterm=bold gui=bold guifg=#ba0059]])
+			vim.cmd([[hi RenderMarkdownH6Bg cterm=bold gui=bold guifg=#5b7c00]])
+			vim.cmd([[hi RenderMarkdownBullet cterm=bold gui=bold guifg=#158c82 ]])
+			vim.cmd([[hi RenderMarkdownPending cterm=bold gui=bold guifg=#007bd3 ]])
+			vim.cmd([[hi RenderMarkdownFailed cterm=bold gui=bold guifg=#a31210 ]])
+			vim.cmd([[hi RenderMarkdownUrgent cterm=bold gui=bold guifg=#cc9f00 ]])
 			require("render-markdown").setup({
 				completions = {
 					lsp = { enabled = true },

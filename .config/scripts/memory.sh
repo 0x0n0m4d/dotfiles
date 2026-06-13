@@ -1,10 +1,42 @@
 #!/bin/sh
 
+number_to_chinese() {
+    case "$1" in
+    0) echo "零" ;;
+    1) echo "一" ;;
+    2) echo "二" ;;
+    3) echo "三" ;;
+    4) echo "四" ;;
+    5) echo "五" ;;
+    6) echo "六" ;;
+    7) echo "七" ;;
+    8) echo "八" ;;
+    9) echo "九" ;;
+    10) echo "十" ;;
+    100) echo "一百" ;;
+    *)
+        if [ "$1" -lt 20 ]; then
+            ones=$(($1 % 10))
+            ones_cn=$(number_to_chinese "$ones")
+            echo "十${ones_cn}"
+        else
+            tens=$(($1 / 10))
+            ones=$(($1 % 10))
+
+            tens_cn=$(number_to_chinese "$tens")
+
+            if [ "$ones" -eq 0 ]; then
+                echo "${tens_cn}十"
+            else
+                ones_cn=$(number_to_chinese "$ones")
+                echo "${tens_cn}十${ones_cn}"
+            fi
+        fi
+        ;;
+    esac
+}
+
 MEMORY=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
+MEMORY_CN=$(number_to_chinese "$MEMORY")
 
-FG_COLOR="#fc8b02"
-if [ $MEMORY -gt 80 ]; then
-    FG_COLOR="#915001"
-fi
-
-echo "<span bgcolor='#000000' color='${FG_COLOR}'>  ${MEMORY}% </span>\n"
+echo "${MEMORY}:${MEMORY_CN}%"

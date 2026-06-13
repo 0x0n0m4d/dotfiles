@@ -94,7 +94,13 @@ fi
 git_branch() {
     res=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
     if [ -n "$res" ]; then
-        echo "(%B%F{#fe8019}$res%b%F{reset})"
+        echo "(%B%F{#cc3900}$res%b%F{reset})"
+    fi
+}
+
+virtual_env() {
+    if [[ -n $VIRTUAL_ENV ]]; then
+        echo "(%B%F{11}$(basename $VIRTUAL_ENV)%b%f)"
     fi
 }
 
@@ -114,7 +120,7 @@ configure_prompt() {
             # Right-side prompt with exit codes and background processes
             ;;
         oneline)
-            PROMPT=$'%B%F{14}${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{9}%n%b%F{reset}㉿%B%F{10}%m%b%F{reset}:%B%F{5}%1~%b%F{reset}$(git_branch)%(#.#.$) '
+            PROMPT=$'$(virtual_env)%B%F{1}%n%b%F{reset}'$prompt_symbol$'%B%F{2}%m%b%F{reset}:%B%F{4}%1~%b%F{reset}$(git_branch)%(#.#.$) '
             RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)$(cmd_time)'
             ;;
         backtrack)
@@ -143,40 +149,40 @@ if [ "$color_prompt" = yes ]; then
         . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
         ZSH_HIGHLIGHT_STYLES[default]=none
-        ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=9
-        ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=14,bold
-        ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=10,underline
-        ZSH_HIGHLIGHT_STYLES[global-alias]=fg=10,bold
-        ZSH_HIGHLIGHT_STYLES[precommand]=fg=10,underline
-        ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=4,bold
-        ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=13,underline
-        ZSH_HIGHLIGHT_STYLES[path]=fg=13,bold
+        ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=1
+        ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=6,bold
+        ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=4,underline
+        ZSH_HIGHLIGHT_STYLES[global-alias]=fg=4,bold
+        ZSH_HIGHLIGHT_STYLES[precommand]=fg=4,underline
+        ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=5,bold
+        ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=4,underline
+        ZSH_HIGHLIGHT_STYLES[path]=fg=4,bold
         ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
         ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
-        ZSH_HIGHLIGHT_STYLES[globbing]=fg=12,bold
+        ZSH_HIGHLIGHT_STYLES[globbing]=fg=4,bold
         ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
         ZSH_HIGHLIGHT_STYLES[command-substitution]=none
-        ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=5,bold
+        ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=3,bold
         ZSH_HIGHLIGHT_STYLES[process-substitution]=none
-        ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=5,bold
-        ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=13
-        ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=13
+        ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=3,bold
+        ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=6
+        ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=6
         ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
         ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=4,bold
-        ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=14
-        ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=14
-        ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=14
-        ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=13
-        ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=13,bold
-        ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=13,bold
-        ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=13,bold
-        ZSH_HIGHLIGHT_STYLES[assign]=fg=13
-        ZSH_HIGHLIGHT_STYLES[redirection]=fg=14,bold
-        ZSH_HIGHLIGHT_STYLES[comment]=fg=8,bold
+        ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=6
+        ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=6
+        ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=6
+        ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=3
+        ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=5,bold
+        ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=5,bold
+        ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=5,bold
+        ZSH_HIGHLIGHT_STYLES[assign]=fg=5
+        ZSH_HIGHLIGHT_STYLES[redirection]=fg=6,bold
+        ZSH_HIGHLIGHT_STYLES[comment]=fg=7,bold
         ZSH_HIGHLIGHT_STYLES[named-fd]=none
-        ZSH_HIGHLIGHT_STYLES[numeric-fd]=fg=10,bold
-        ZSH_HIGHLIGHT_STYLES[arg0]=fg=10,bold
-        ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=9,bold
+        ZSH_HIGHLIGHT_STYLES[numeric-fd]=fg=2,bold
+        ZSH_HIGHLIGHT_STYLES[arg0]=fg=2,bold
+        ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=1,bold
         ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
         ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
         ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
@@ -278,7 +284,12 @@ alias ll='eza -la --group -s extension --icons=always --group-directories-first'
 alias tree='eza -la -s extension --icons=always -T'
 alias v='nvim'
 alias cal='ncal -b'
-alias cat='batcat --theme "gruvbox-dark" -p'
+alias cat='batcat --theme "Solarized (dark)" -p'
+alias xcp='xclip -sel c'
+
+math() {
+    bc -l <<< "$@"
+}
 
 # path
 export PATH=$PATH:$HOME/go/bin
@@ -294,7 +305,7 @@ ZVM_VI_HIGHLIGHT_BACKGROUND=
 ZVM_VI_HIGHLIGHT_FOREGROUND=
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="/home/n0m4d/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -302,9 +313,6 @@ esac
 
 # nim
 export CHA_LIBEXEC_DIR="/usr/local/libexec/chawan"
-export PATH=$PATH:$HOME/.nimble/bin
+export PATH=$PATH:/home/n0m4d/.nimble/bin
 
 export EDITOR='nvim'
-TARGET='' # Hack The Box stuff
-
-GITHUB_TOKEN="REDACTED"

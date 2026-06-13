@@ -13,18 +13,13 @@ return {
 			}))
 			require("nvim-treesitter").install({
 				"javascript",
-				"typescript",
 				"c",
-				"cpp",
 				"python",
 				"go",
 				"solidity",
 				"markdown",
 				"markdown_inline",
 				"rust",
-				"json",
-				"php",
-				"ruby",
 			})
 			-- New v1.0 requires manual attachment per buffer
 			vim.api.nvim_create_autocmd("FileType", {
