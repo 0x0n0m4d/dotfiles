@@ -8,11 +8,13 @@
 
   - i3 WM
   - Shell
+  - Emacs
 
 ## I3 Setup
 
   - [i3](https://github.com/i3/i3) - WM
-  - [Quickshell](https://quickshell.org/) - Status Bar
+  - [i3blocks](https://github.com/vivien/i3blocks) - Status Bar
+  - [Emacs 30.2](https://www.gnu.org/software/emacs/) - Editor
   - [picom](https://github.com/yshui/picom) - Compositor
   - [dunst](https://github.com/dunst-project/dunst) - Notification daemon
   - [dvorak](https://github.com/0x0n0m4d/keyboards) - Keyboard layout
@@ -22,9 +24,7 @@
   - [Kitty](https://sw.kovidgoyal.net/kitty/) - Terminal
   - [zsh](https://www.zsh.org/) - Shell
     - [zsh vi mode](https://github.com/jeffreytse/zsh-vi-mode) - Shell
-  - [nerd fonts](https://www.nerdfonts.com/) JetBrainsMono Font
-  - [neovim](https://github.com/neovim/neovim) - Editor
-    - [lazyVim](https://www.lazyvim.org/)
+  - [nerd fonts](https://www.nerdfonts.com/) BigBlueTerm Font
   - [mitmproxy](https://www.mitmproxy.org/)
   - [sc-im](https://github.com/andmarti1424/sc-im)
   - [pomo](https://github.com/Bahaaio/pomo)

@@ -1,7 +1,0 @@
-module Taskbar
-Bar 1.0 Bar.qml
-TaskbarButton 1.0 TaskbarButton.qml
-TaskbarCard 1.0 TaskbarCard.qml
-Workspaces 1.0 Workspaces.qml
-Widget 1.0 Widget.qml
-SysTray 1.0 SysTray.qml

@@ -42,4 +42,4 @@ PERCENTAGE=$(((CURRENT_BRIGHT * 100) / MAX_BRIGHT))
 
 PERCENTAGE_CN=$(number_to_chinese "$PERCENTAGE")
 
-echo "${PERCENTAGE_CN}％"
+echo "<span color='#282828' bgcolor='#d79921'> 󰌵 ${PERCENTAGE_CN}％  </span>"

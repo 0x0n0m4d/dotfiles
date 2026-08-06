@@ -40,9 +40,9 @@ INTERFACE="wlan0"
 SSID=$(iw dev | grep ssid | awk '{print $2}')
 
 if [ ! -d "/sys/class/net/${INTERFACE}/" ] || [ ! -f "/sys/class/net/${INTERFACE}/operstate" ]; then
-    echo "-2:无网络"
+    OUTPUT=" 无网络"
 elif [ -z "$SSID" ]; then
-    echo "-1:未连接"
+    OUTPUT="󱛂 未连接"
 else
     SIGNAL=$(iw dev "$INTERFACE" link | grep signal | awk '{print $2}')
 
@@ -56,5 +56,7 @@ else
 
     PERCENTAGE_CN=$(number_to_chinese "$PERCENTAGE")
 
-    echo "${PERCENTAGE}:${PERCENTAGE_CN}％"
+    OUTPUT="󰖩 ${PERCENTAGE_CN}％"
 fi
+
+echo "<span color='#282828' bgcolor='#fb4934'> ${OUTPUT}  </span>"

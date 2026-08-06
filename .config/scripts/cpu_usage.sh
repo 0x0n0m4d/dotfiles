@@ -62,4 +62,4 @@ for digit in $(echo "$DEC_PART" | grep -o .); do
     DEC_CN="${DEC_CN}$(digit_to_chinese "$digit")"
 done
 
-echo "${INT_PART}:${INT_CN}点${DEC_CN}％"
+echo "<span color='#282828' bgcolor='#98971a'>  ${INT_CN}点${DEC_CN}％  </span>"

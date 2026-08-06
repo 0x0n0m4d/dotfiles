@@ -42,14 +42,43 @@ PERCENTAGE=$(cat /sys/class/power_supply/BAT1/uevent | grep 'CAPACITY=' | awk -F
 PERCENTAGE_CN=$(number_to_chinese "$PERCENTAGE")
 
 if [ "$STATUS" = "Discharging" ]; then
+	COLOR="#98971a"
+	
     if [ ! -f /tmp/battery_notify.tmp ] && [ "$PERCENTAGE" -le 40 ]; then
         notify-send -u critical "󰁹 电池警告" "电量低，请立即充电！"
         touch /tmp/battery_notify.tmp
     fi
+
+	if [ "$PERCENTAGE" -gt 90 ]; then
+		SYMBOL="󰁹"
+	elif [ "$PERCENTAGE" -gt 80 ]; then
+		SYMBOL="󰂂"
+	elif [ "$PERCENTAGE" -gt 70 ]; then
+		SYMBOL="󰂁"
+	elif [ "$PERCENTAGE" -gt 60 ]; then
+		SYMBOL="󰂀"
+	elif [ "$PERCENTAGE" -gt 50 ]; then
+		SYMBOL="󰁿"
+	elif [ "$PERCENTAGE" -gt 40 ]; then
+		SYMBOL="󰁾"
+	elif [ "$PERCENTAGE" -gt 30 ]; then
+		SYMBOL="󰁽"
+	elif [ "$PERCENTAGE" -gt 20 ]; then
+		SYMBOL="󰁼"
+	else
+		SYMBOL="󰂃"
+	fi
+
+	if [ "$PERCENTAGE" -le 40 ]; then
+		COLOR="#fb4934"
+	fi
 else
+	COLOR="#d79921"
+	SYMBOL=""
+
     if [ -f /tmp/battery_notify.tmp ]; then
         rm /tmp/battery_notify.tmp
     fi
 fi
 
-echo -n "${STATUS}:${PERCENTAGE}:${PERCENTAGE_CN}％"
+echo "<span color='#282828' bgcolor='${COLOR}'> ${SYMBOL} ${PERCENTAGE_CN}％  </span>"

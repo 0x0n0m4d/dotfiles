@@ -39,4 +39,4 @@ number_to_chinese() {
 MEMORY=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
 MEMORY_CN=$(number_to_chinese "$MEMORY")
 
-echo "${MEMORY}:${MEMORY_CN}%"
+echo "<span color='#282828' bgcolor='#fb4934'>  ${MEMORY_CN}％  </span>"

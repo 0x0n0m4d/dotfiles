@@ -135,7 +135,7 @@ configure_prompt() {
 # These delimiters must not be modified. Thanks.
 # START KALI CONFIG VARIABLES
 PROMPT_ALTERNATIVE=oneline
-NEWLINE_BEFORE_PROMPT=yes
+NEWLINE_BEFORE_PROMPT=no
 # STOP KALI CONFIG VARIABLES
 
 if [ "$color_prompt" = yes ]; then
@@ -284,8 +284,9 @@ alias ll='eza -la --group -s extension --icons=always --group-directories-first'
 alias tree='eza -la -s extension --icons=always -T'
 alias v='nvim'
 alias cal='ncal -b'
-alias cat='batcat --theme "Solarized (dark)" -p'
+alias cat='batcat --theme "gruvbox-dark" -p'
 alias xcp='xclip -sel c'
+alias clipui='copyq show "&clipboard"'
 
 math() {
     bc -l <<< "$@"
@@ -304,15 +305,4 @@ source $HOME/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZVM_VI_HIGHLIGHT_BACKGROUND=
 ZVM_VI_HIGHLIGHT_FOREGROUND=
 
-# pnpm
-export PNPM_HOME="/home/n0m4d/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# nim
-export CHA_LIBEXEC_DIR="/usr/local/libexec/chawan"
-export PATH=$PATH:/home/n0m4d/.nimble/bin
-
-export EDITOR='nvim'
+export EDITOR='vim'

@@ -112,7 +112,7 @@ console_mouse: true
 
 # Color palette. Valid values are 'dark', 'light', 'lowdark',
 # 'lowlight', 'solarized_dark', 'solarized_light'.
-console_palette: solarized_dark
+console_palette: lowdark
 
 # Set transparent background for palette. Type bool.
 console_palette_transparent: true

@@ -41,13 +41,13 @@ OUT=$(pactl list sinks | grep -e Mute: -e Volume:)
 MUTED=$(echo "$OUT" | head -n 1 | awk '{print $2}')
 
 if [ "$MUTED" = "yes" ]; then
-    VOLUME="-1:静音"
+    VOLUME=" 静音"
 else
     RAW_VOLUME=$(echo "$OUT" | grep Volume: | head -n 1 | awk '{print $5}' | tr -d '%')
 
     VOLUME_CN=$(number_to_chinese "$RAW_VOLUME")
 
-    VOLUME="${RAW_VOLUME}:${VOLUME_CN}％"
+    VOLUME="󰕾 ${VOLUME_CN}％"
 fi
 
-echo "${VOLUME}"
+echo "<span color='#282828' bgcolor='#fb4934'> ${VOLUME}  </span>"

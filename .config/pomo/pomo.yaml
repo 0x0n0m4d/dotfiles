@@ -1,0 +1,41 @@
+# action to take after session completion
+# options: "ask" | "start" | "quit"
+onSessionEnd: "ask"
+
+asciiArt:
+  # use ASCII art for timer display
+  enabled: true
+
+  # available fonts: "mono12" | "rebel" | "ansi" | "ansiShadow"
+  # default: mono12
+  font: ansi
+
+  # color of the ASCII art timer
+  # hex color or "none"
+  color: "#fb4934"
+
+work:
+  duration: 3h
+  title: work session!
+
+  # cross-platform notifications
+  notification:
+    enabled: false
+
+  then:
+    - [$HOME/.config/pomo/notify.sh, 1]
+
+break:
+  duration: 15m
+  title: break time!
+
+  notification:
+    enabled: false
+
+  # will run after the session ends
+  then:
+    - [$HOME/.config/pomo/notify.sh, 0]
+
+longBreak:
+  # enable long break after a certain number of work sessions
+  enabled: false

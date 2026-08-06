@@ -34,10 +34,10 @@ MIN=$((10#$MIN))
 
 HOUR_CN=$(number_to_chinese "$HOUR")
 
-if [ "$MIN" -lt 10 ]; then
+if [[ "$MIN" -lt 10 ]]; then
     MIN_CN="零$(number_to_chinese "$MIN")"
 else
     MIN_CN=$(number_to_chinese "$MIN")
 fi
 
-echo "${HOUR_CN}点${MIN_CN}分"
+echo "<span color='#282828' bgcolor='#98971a'>  ${HOUR_CN}点${MIN_CN}分  </span>"
