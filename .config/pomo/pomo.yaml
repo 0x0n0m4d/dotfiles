@@ -1,6 +1,6 @@
 # action to take after session completion
 # options: "ask" | "start" | "quit"
-onSessionEnd: "ask"
+onSessionEnd: "start"
 
 asciiArt:
   # use ASCII art for timer display
@@ -23,7 +23,7 @@ work:
     enabled: false
 
   then:
-    - [$HOME/.config/pomo/notify.sh, 1]
+    - [/home/n0m4d/.config/pomo/notify.sh, 1]
 
 break:
   duration: 15m
@@ -34,7 +34,7 @@ break:
 
   # will run after the session ends
   then:
-    - [$HOME/.config/pomo/notify.sh, 0]
+    - [/home/n0m4d/.config/pomo/notify.sh, 0]
 
 longBreak:
   # enable long break after a certain number of work sessions

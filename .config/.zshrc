@@ -110,6 +110,30 @@ cmd_time() {
     fi
 }
 
+VI_MODE_INDICATOR="(%F{yellow}i%f)"
+
+function zvm_after_select_vi_mode() {
+    case $ZVM_MODE in
+        $ZVM_MODE_NORMAL)
+            VI_MODE_INDICATOR="(%F{blue}n%f)"
+            ;;
+        $ZVM_MODE_INSERT)
+            VI_MODE_INDICATOR="(%F{yellow}i%f)"
+            ;;
+        $ZVM_MODE_VISUAL)
+            VI_MODE_INDICATOR="(%F{magenta}v%f)"
+            ;;
+        $ZVM_MODE_VISUAL_LINE)
+            VI_MODE_INDICATOR="(%F{magenta}V%f)"
+            ;;
+        $ZVM_MODE_REPLACE)
+            VI_MODE_INDICATOR="(%F{red}r%f)"
+            ;;
+    esac
+
+    zle && zle .reset-prompt
+}
+
 configure_prompt() {
     prompt_symbol=㉿
     # Skull emoji for root terminal
@@ -120,7 +144,7 @@ configure_prompt() {
             # Right-side prompt with exit codes and background processes
             ;;
         oneline)
-            PROMPT=$'$(virtual_env)%B%F{1}%n%b%F{reset}'$prompt_symbol$'%B%F{2}%m%b%F{reset}:%B%F{4}%1~%b%F{reset}$(git_branch)%(#.#.$) '
+            PROMPT=$'$(virtual_env)%B%F{1}%n%b%F{reset}${VI_MODE_INDICATOR}%B%F{2}%m%b%F{reset}:%B%F{4}%1~%b%F{reset}$(git_branch)%(#.#.$) '
             RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)$(cmd_time)'
             ;;
         backtrack)
@@ -279,30 +303,64 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
+export EDITOR='nvim'
 # aliases
-alias ll='eza -la --group -s extension --icons=always --group-directories-first'
+alias ll='eza -laB --group -s extension --icons=always --group-directories-first'
 alias tree='eza -la -s extension --icons=always -T'
 alias v='nvim'
 alias cal='ncal -b'
 alias cat='batcat --theme "gruvbox-dark" -p'
 alias xcp='xclip -sel c'
 alias clipui='copyq show "&clipboard"'
+alias cl='copyq select 0'
+alias icat='kitten icat'
+alias cha='cha -V'
 
 math() {
     bc -l <<< "$@"
 }
 
+jwtd() {
+    jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' <<<$1
+    echo -e "\nSignature: $(awk -F. '{print $3}' <<<$1)"
+}
+
 # path
-export PATH=$PATH:$HOME/go/bin
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 
 # zig
-export PATH=$PATH:/opt/zig
+export PATH=/opt/zig:$PATH
 
 # Better vim
+ZVM_CURSOR_STYLE_ENABLED=false
 source $HOME/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-ZVM_VI_HIGHLIGHT_BACKGROUND=
-ZVM_VI_HIGHLIGHT_FOREGROUND=
+ZVM_VI_HIGHLIGHT_BACKGROUND=default
+ZVM_VI_HIGHLIGHT_FOREGROUND=default
+ZVM_VI_HIGHLIGHT_EXTRASTYLE=standout
 
-export EDITOR='vim'
+# pnpm
+export PNPM_HOME="/home/n0m4d/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# nim
+export CHA_LIBEXEC_DIR="/usr/local/libexec/chawan"
+export PATH=$PATH:/home/n0m4d/.nimble/bin
+
+# man
+export MANPAGER="batcat -plman --theme 'gruvbox-dark'"
+
+# kitty
+autoload -Uz edit-command-line
+zle -N edit-command-line
+function kitty_scrollback_edit_command_line() {
+  local VISUAL='/home/n0m4d/.local/share/nvim/lazy/kitty-scrollback.nvim/scripts/edit_command_line.sh'
+  zle edit-command-line
+  zle kill-whole-line
+}
+zle -N kitty_scrollback_edit_command_line

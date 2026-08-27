@@ -1,0 +1,10 @@
+{
+    "settings": {
+        "bar": {
+            "fontSize": 18
+        },
+        "currentTheme": "dark",
+        "militaryTimeClockFormat": true,
+        "version": "0.1"
+    }
+}

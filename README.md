@@ -8,14 +8,12 @@
 
   - i3 WM
   - Shell
-  - Emacs
 
 ## I3 Setup
 
   - [i3](https://github.com/i3/i3) - WM
-  - [i3blocks](https://github.com/vivien/i3blocks) - Status Bar
-  - [Emacs 30.2](https://www.gnu.org/software/emacs/) - Editor
-  - [picom](https://github.com/yshui/picom) - Compositor
+  - [Quickshell](https://quickshell.org/) - Status Bar
+  - [Neovim](https://neovim.io/) - Editor
   - [dunst](https://github.com/dunst-project/dunst) - Notification daemon
   - [dvorak](https://github.com/0x0n0m4d/keyboards) - Keyboard layout
 
@@ -29,3 +27,4 @@
   - [sc-im](https://github.com/andmarti1424/sc-im)
   - [pomo](https://github.com/Bahaaio/pomo)
   - [calcurse](https://github.com/lfos/calcurse)
+  - [chawan](https://chawan.net/)

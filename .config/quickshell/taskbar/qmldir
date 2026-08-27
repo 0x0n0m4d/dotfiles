@@ -1,0 +1,5 @@
+module Taskbar
+Bar 1.0 Bar.qml
+Workspaces 1.0 Workspaces.qml
+SysTray 1.0 SysTray.qml
+Widget 1.0 Widget.qml

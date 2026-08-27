@@ -1,0 +1,63 @@
+[buffer]
+scripting = true
+images = true
+user-style = '''
+  :root, body, div {
+    color: #ebdbb2 !important;
+    background-color: #282828 !important;
+  }
+  span {
+    color: #d79921 !important;
+  }
+  p {
+    color: #ebdbb2 !important;
+    background-color: #282828 !important;
+  }
+  ul li {
+    color: #b16286 !important;
+  }
+  table {
+    color: #ebdbb2 !important;
+    background-color: #3c3836 !important;
+  }
+  thead {
+    background-color: #282828 !important;
+    color: #fe8019 !important;
+  }
+  tbody {
+    background-color: #282828 !important;
+    color: #689d6a !important;
+  }
+  td, th {
+    background-color: #282828 !important;
+  }
+  img {
+    background-color: #ebdbb2 !important;
+  }
+  section {
+    color: #ebdbb2 !important;
+    background-color: #3c3836 !important;
+  }
+  footer {
+    color: #0f629e !important;
+    background-color: #3c3836 !important;
+  }
+  a { color: #b8bb26 !important; }
+  a:visited { color: #b16286 !important; }
+  h1, h2, { color: #fb4934 !important; }
+  h3, h4, h5, h6 { color: #83a598 !important; }
+  pre {
+    background-color: #3c3836 !important
+  }
+'''
+
+[display]
+image-mode = "kitty"
+default-background-color = "#282828"
+default-foreground-color = "#ebdbb2"
+
+[network]
+default-headers = { User-Agent = "Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0" }
+
+[page]
+'C-k' = '() => pager.load("ddg:")'

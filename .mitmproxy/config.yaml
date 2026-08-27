@@ -93,7 +93,7 @@ console_default_contentview: auto
 
 # EventLog verbosity. Valid values are 'error', 'warn', 'info', 'alert',
 # 'debug'.
-console_eventlog_verbosity: error
+console_eventlog_verbosity: debug
 
 # Set the flowlist layout Valid values are 'default', 'list', 'table'.
 console_flowlist_layout: default
@@ -108,11 +108,11 @@ console_layout: single
 console_layout_headers: true
 
 # Console mouse interaction. Type bool.
-console_mouse: true
+console_mouse: false
 
 # Color palette. Valid values are 'dark', 'light', 'lowdark',
 # 'lowlight', 'solarized_dark', 'solarized_light'.
-console_palette: lowdark
+console_palette: 'lowdark'
 
 # Set transparent background for palette. Type bool.
 console_palette_transparent: true
@@ -358,7 +358,7 @@ showhost: false
 # this option is enabled, certificate validation is skipped and
 # mitmproxy itself will be vulnerable to             TLS interception.
 # Type bool.
-ssl_insecure: false
+ssl_insecure: true
 
 # Path to a PEM formatted trusted CA certificate. Type optional str.
 ssl_verify_upstream_trusted_ca:
@@ -407,21 +407,21 @@ tls_ecdh_curve_server:
 
 # Set the maximum TLS version for client connections. Valid values are
 # 'UNBOUNDED', 'SSL3', 'TLS1', 'TLS1_1', 'TLS1_2', 'TLS1_3'.
-tls_version_client_max: UNBOUNDED
+# tls_version_client_max: UNBOUNDED
 
 # Set the minimum TLS version for client connections. UNBOUNDED, SSL3,
 # TLS1 and TLS1_1 are insecure. Valid values are 'UNBOUNDED', 'SSL3',
 # 'TLS1', 'TLS1_1', 'TLS1_2', 'TLS1_3'.
-tls_version_client_min: TLS1_2
+# tls_version_client_min: TLS1_2
 
 # Set the maximum TLS version for server connections. Valid values are
 # 'UNBOUNDED', 'SSL3', 'TLS1', 'TLS1_1', 'TLS1_2', 'TLS1_3'.
-tls_version_server_max: UNBOUNDED
+# tls_version_server_max: UNBOUNDED
 
 # Set the minimum TLS version for server connections. UNBOUNDED, SSL3,
 # TLS1 and TLS1_1 are insecure. Valid values are 'UNBOUNDED', 'SSL3',
 # 'TLS1', 'TLS1_1', 'TLS1_2', 'TLS1_3'.
-tls_version_server_min: TLS1_2
+# tls_version_server_min: TLS1
 
 # Generic UDP SSL proxy mode for all hosts that match the pattern.
 # Similar to --ignore-hosts, but SSL connections are intercepted. The
@@ -448,7 +448,7 @@ view_filter:
 view_order: time
 
 # Reverse the sorting order. Type bool.
-view_order_reversed: false
+view_order_reversed: true
 
 # Enable/disable WebSocket support. WebSocket support is enabled by
 # default. Type bool.
