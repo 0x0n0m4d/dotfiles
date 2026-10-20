@@ -12,19 +12,17 @@
 ## I3 Setup
 
   - [i3](https://github.com/i3/i3) - WM
-  - [Quickshell](https://quickshell.org/) - Status Bar
-  - [Neovim](https://neovim.io/) - Editor
+  - [quickshell](https://quickshell.org/) - Status Bar
+  - [neovim](https://neovim.io/) - Editor
   - [dunst](https://github.com/dunst-project/dunst) - Notification daemon
+  - [sioyek](https://github.com/ahrm/sioyek)
   - [dvorak](https://github.com/0x0n0m4d/keyboards) - Keyboard layout
+  - [qutebrowser](https://qutebrowser.org/) - Browser
+  - [mitmproxy](https://www.mitmproxy.org/) - Proxy
 
 ## Shell setup (Linux)
 
-  - [Kitty](https://sw.kovidgoyal.net/kitty/) - Terminal
+  - [kitty](https://sw.kovidgoyal.net/kitty/) - Terminal
   - [zsh](https://www.zsh.org/) - Shell
     - [zsh vi mode](https://github.com/jeffreytse/zsh-vi-mode) - Shell
   - [nerd fonts](https://www.nerdfonts.com/) BigBlueTerm Font
-  - [mitmproxy](https://www.mitmproxy.org/)
-  - [sc-im](https://github.com/andmarti1424/sc-im)
-  - [pomo](https://github.com/Bahaaio/pomo)
-  - [calcurse](https://github.com/lfos/calcurse)
-  - [chawan](https://chawan.net/)

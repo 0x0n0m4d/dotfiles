@@ -9,7 +9,7 @@ import ".."
 RowLayout {
     id: workspaces
 
-    anchors.right: parent.right
+    anchors.left: parent.left
     anchors.verticalCenter: parent.verticalCenter
 
     property var currentWorkspaces:
@@ -21,7 +21,7 @@ RowLayout {
         I3.focusedWorkspace ? I3.focusedWorkspace.number : -1
 
     Repeater {
-        model: parent.currentWorkspaces.slice().reverse()
+        model: parent.currentWorkspaces.slice()
 
         Button {
             id: control

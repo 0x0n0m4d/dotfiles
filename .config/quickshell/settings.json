@@ -1,7 +1,7 @@
 {
     "settings": {
         "bar": {
-            "fontSize": 18
+            "fontSize": 16
         },
         "currentTheme": "dark",
         "militaryTimeClockFormat": true,

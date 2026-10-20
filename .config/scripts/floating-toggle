@@ -1,0 +1,45 @@
+#!/bin/bash
+
+set -e
+
+STATE_DIR="${XDG_RUNTIME_DIR:-/tmp}/i3-floating"
+mkdir -p "$STATE_DIR"
+
+# Get the currently focused container.
+info=$(i3-msg -t get_tree | jq -r '
+    recurse(.nodes[]?, .floating_nodes[]?)
+    | select(.focused == true)
+    | {
+        id: .id,
+        floating: .floating,
+        x: .rect.x,
+        y: .rect.y,
+        width: .rect.width,
+        height: .rect.height
+    }
+')
+
+id=$(jq -r '.id' <<< "$info")
+floating=$(jq -r '.floating' <<< "$info")
+state="$STATE_DIR/$id"
+
+if [[ "$floating" == "user_on" ]]; then
+    # Save the current floating rectangle.
+    jq -c '{x, y, width, height}' <<< "$info" > "$state"
+
+    # Floating -> tiling.
+    i3-msg 'floating toggle' >/dev/null
+else
+    # Tiling -> floating.
+    i3-msg 'floating toggle' >/dev/null
+
+    # Restore the previous floating rectangle.
+    if [[ -f "$state" ]]; then
+        read -r x y width height < <(
+            jq -r '[.x, .y, .width, .height] | @tsv' "$state"
+        )
+
+        i3-msg "move position ${x} px ${y} px" >/dev/null
+        i3-msg "resize set ${width} px ${height} px" >/dev/null
+    fi
+fi

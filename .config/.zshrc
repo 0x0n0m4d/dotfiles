@@ -48,13 +48,13 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
-#setopt share_history         # share command history data
+setopt share_history          # share command history data
 
 # force zsh to show the complete history
 alias history="history 0"
@@ -94,7 +94,7 @@ fi
 git_branch() {
     res=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
     if [ -n "$res" ]; then
-        echo "(%B%F{#cc3900}$res%b%F{reset})"
+        echo "(%B%F{#fe8019}$res%b%F{reset})"
     fi
 }
 
@@ -171,42 +171,43 @@ if [ "$color_prompt" = yes ]; then
     # enable syntax-highlighting
     if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
         . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-        ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-        ZSH_HIGHLIGHT_STYLES[default]=none
-        ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=1
-        ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=6,bold
-        ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=4,underline
-        ZSH_HIGHLIGHT_STYLES[global-alias]=fg=4,bold
-        ZSH_HIGHLIGHT_STYLES[precommand]=fg=4,underline
-        ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=5,bold
-        ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=4,underline
-        ZSH_HIGHLIGHT_STYLES[path]=fg=4,bold
+        . ~/.config/zsh_hl/kh-path-highlighter.zsh
+        ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern existing)
+        ZSH_HIGHLIGHT_STYLES[default]=fg=blue
+        ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red
+        ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=yellow,bold
+        ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=blue,underline
+        ZSH_HIGHLIGHT_STYLES[global-alias]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[precommand]=fg=blue,underline
+        ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=green,bold
+        ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=blue,underline
+        ZSH_HIGHLIGHT_STYLES[path]=fg=blue,bold
         ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
         ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
-        ZSH_HIGHLIGHT_STYLES[globbing]=fg=4,bold
+        ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
         ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
         ZSH_HIGHLIGHT_STYLES[command-substitution]=none
-        ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=3,bold
+        ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=yellow,bold
         ZSH_HIGHLIGHT_STYLES[process-substitution]=none
-        ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=3,bold
-        ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=6
-        ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=6
+        ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=yellow,bold
+        ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=magenta
+        ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=magenta
         ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-        ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=4,bold
-        ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=6
-        ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=6
-        ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=6
-        ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=3
-        ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=5,bold
-        ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=5,bold
-        ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=5,bold
-        ZSH_HIGHLIGHT_STYLES[assign]=fg=5
-        ZSH_HIGHLIGHT_STYLES[redirection]=fg=6,bold
-        ZSH_HIGHLIGHT_STYLES[comment]=fg=7,bold
+        ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
+        ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
+        ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
+        ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=yellow
+        ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=cyan,bold
+        ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan,bold
+        ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=cyan,bold
+        ZSH_HIGHLIGHT_STYLES[assign]=fg=cyan
+        ZSH_HIGHLIGHT_STYLES[redirection]=fg=mangenta,bold
+        ZSH_HIGHLIGHT_STYLES[comment]=fg=8,bold
         ZSH_HIGHLIGHT_STYLES[named-fd]=none
-        ZSH_HIGHLIGHT_STYLES[numeric-fd]=fg=2,bold
-        ZSH_HIGHLIGHT_STYLES[arg0]=fg=2,bold
-        ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=1,bold
+        ZSH_HIGHLIGHT_STYLES[numeric-fd]=fg=green,bold
+        ZSH_HIGHLIGHT_STYLES[arg0]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
         ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
         ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
         ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
@@ -291,12 +292,36 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
 
+_kh_menu() {
+  local lw=${LBUFFER##*[[:space:]]}
+  local -a c
+
+  if [[ $LBUFFER == *[[:space:]]* ]]; then
+    lw=${${(z)BUFFER}[1]}                 # past the first word: man for that command
+    c=( $lw )
+  else
+    c=( ${(k)commands} ${(k)aliases} ${(k)functions} ${(k)builtins} ${(k)reswords} )
+    [[ -n $lw ]] && c=( ${(M)c:#${lw}*} )
+    [[ $lw == _* ]] || c=( ${c:#_*} )     # hide internal completion functions
+    c=( ${(ou)c} )
+  fi
+
+  local f=$(mktemp)
+  (( $#c )) && print -rl -- $c > $f
+  kitten @ launch --type=overlay --stdin-source=@screen --stdin-add-formatting \
+    --env "KH_CANDS=$f" --env "KH_WORD=$lw" \
+    --env "KH_BUFFER=$BUFFER" --env "KH_CWD=$PWD" \
+    python3 ~/.config/kitty/scripts/menu.py >/dev/null
+}
+zle -N _kh_menu
+bindkey '^[m' _kh_menu
+
 # enable auto-suggestions based on the history
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    # change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
-fi
+#if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+#    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#    # change suggestion color
+#    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+#fi
 
 # enable command-not-found if installed
 if [ -f /etc/zsh_command_not_found ]; then
@@ -305,11 +330,12 @@ fi
 
 export EDITOR='nvim'
 # aliases
-alias ll='eza -laB --group -s extension --icons=always --group-directories-first'
-alias tree='eza -la -s extension --icons=always -T'
+alias ll='eza -oAl --group-directories-first -s ext --no-permissions --no-user --icons=never'
+alias tree='eza -la -s extension --icons=never -T --color=never'
 alias v='nvim'
 alias cal='ncal -b'
 alias cat='batcat --theme "gruvbox-dark" -p'
+alias c='batcat --theme "gruvbox-dark" -p --paging=always'
 alias xcp='xclip -sel c'
 alias clipui='copyq show "&clipboard"'
 alias cl='copyq select 0'
@@ -352,8 +378,16 @@ esac
 export CHA_LIBEXEC_DIR="/usr/local/libexec/chawan"
 export PATH=$PATH:/home/n0m4d/.nimble/bin
 
+TARGET=''
+MYIP=''
+
+GITHUB_TOKEN=""
+SEMGREP_APP_TOKEN=""
+STRIX_LLM=""
+LLM_API_KEY=""
+
 # man
-export MANPAGER="batcat -plman --theme 'gruvbox-dark'"
+export MANPAGER="batcat -plman --theme 'gruvbox-dark' --wrap=never"
 
 # kitty
 autoload -Uz edit-command-line
@@ -364,3 +398,6 @@ function kitty_scrollback_edit_command_line() {
   zle kill-whole-line
 }
 zle -N kitty_scrollback_edit_command_line
+
+# strix
+export PATH=/home/n0m4d/.strix/bin:$PATH

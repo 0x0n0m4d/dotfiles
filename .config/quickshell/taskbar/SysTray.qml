@@ -10,7 +10,7 @@ import ".."
 
 RowLayout {
     id: sysTrayRow
-    anchors.left: parent.left
+    anchors.right: parent.right
     anchors.verticalCenter: parent.verticalCenter
 
     Row {
@@ -18,27 +18,6 @@ RowLayout {
 
         spacing: 10
 
-        Widget {
-            id: timeAtom
-            value: Time.value
-        }
-        Widget {
-            id: batteryAtom
-            value: Battery.value
-            blink: Battery.blink
-        }
-        Widget {
-            id: volumeAtom
-            value: Volume.value
-        }
-        Widget {
-            id: brightnessAtom
-            value: Brightness.value
-        }
-        Widget {
-            id: wifyAtom
-            value: Wifi.value
-        }
         Widget {
             id: cpuAtom
             value: CPU.value
@@ -48,6 +27,27 @@ RowLayout {
             id: memoryAtom
             value: Memory.value
             blink: Memory.blink
+        }
+        Widget {
+            id: wifyAtom
+            value: Wifi.value
+        }
+        Widget {
+            id: brightnessAtom
+            value: Brightness.value
+        }
+        Widget {
+            id: volumeAtom
+            value: Volume.value
+        }
+        Widget {
+            id: batteryAtom
+            value: Battery.value
+            blink: Battery.blink
+        }
+        Widget {
+            id: timeAtom
+            value: Time.value
         }
     }
 }

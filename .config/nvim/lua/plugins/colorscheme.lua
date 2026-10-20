@@ -10,14 +10,29 @@ return {
         vim.g.gruvbox_material_enable_bold = true
         vim.cmd.colorscheme("gruvbox-material")
 
+        -- Search
+        vim.api.nvim_set_hl(0, "IncSearch", {
+            bg = "#458588",
+            fg = "#282828",
+        })
+        vim.api.nvim_set_hl(0, "Search", {
+            bg = "#fabd2f",
+            fg = "#282828",
+        })
+        vim.api.nvim_set_hl(0, "CurSearch", {
+            bg = "#d3869b",
+            fg = "#282828",
+        })
+
+        -- Tab
         vim.api.nvim_set_hl(0, "TabLine", {
-            fg = "#a89984",
+            fg = "#b8bb26",
             bg = "#282828",
         })
 
         vim.api.nvim_set_hl(0, "TabLineSel", {
-            fg = "#fe8019",
-            bg = "#282828",
+            fg = "#282828",
+            bg = "#b8bb26",
             bold = true,
         })
 

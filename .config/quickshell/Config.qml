@@ -8,7 +8,7 @@ Singleton {
     property var colors: themes[Config.settings.currentTheme] ?? themes['dark']
     property var themes: ({
         "dark": {
-            "base": "#98971a",
+            "base": "#b16286",
             "dark": "#282828",
             "urgent": "#cc241d",
         }
@@ -34,7 +34,7 @@ Singleton {
                 property bool militaryTimeClockFormat: true
                 property string currentTheme: "dark"
                 property JsonObject bar: JsonObject {
-                    property int fontSize: 18
+                    property int fontSize: 17
                 }
             }
         }

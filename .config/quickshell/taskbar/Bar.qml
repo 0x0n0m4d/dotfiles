@@ -20,13 +20,13 @@ Scope {
                     left: true
                     right: true
                 }
-                implicitHeight: 20
+                implicitHeight: 15
                 color: Config.colors.base
 
                 Item {
                     id: sysTrayWidget
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
+                    anchors.right: parent.right
                     height: parent.height
                     width: sysTray.width + 18
                     SysTray {
@@ -37,7 +37,7 @@ Scope {
                 Item {
                     id: workspacesObject
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
+                    anchors.left: parent.left
                     height: parent.height
                     Workspaces {
                         id: workspaces

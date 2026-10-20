@@ -19,7 +19,7 @@ Singleton {
                 const output = text.trim()
                 root.value = /^-?\d+$/.test(output)
                     ? "WiFi:"+output+"%"
-                    ? "WiFi:"+output
+                    : "WiFi:"+output
             }
         }
 
